@@ -1,4 +1,7 @@
-<?php include 'inc/header.php'; ?>
+<?php
+$pageTitle = "The best day I've ever had";
+
+include 'inc/header.php'; ?>
   <section>
     <div class="container">
       <div class="entry-list single">

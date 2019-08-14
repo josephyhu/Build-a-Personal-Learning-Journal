@@ -4,6 +4,7 @@ $pageTitle = 'MyJournal';
 include 'inc/header.php'; ?>
   <section>
     <div class="container">
+      <h1><?php echo $pageTitle; ?></h1>
       <div class="entry-list">
         <article>
           <h2><a href="detail.php">The best day I’ve ever had</a></h2>

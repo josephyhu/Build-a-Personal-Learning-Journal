@@ -1,4 +1,7 @@
-<?php include 'inc/header.php'; ?>
+<?php
+$pageTitle = 'Edit Entry';
+
+include 'inc/header.php'; ?>
   <section>
     <div class="container">
       <div class="edit-entry">

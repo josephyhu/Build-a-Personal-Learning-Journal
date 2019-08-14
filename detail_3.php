@@ -1,4 +1,7 @@
-<?php include 'inc/header.php'; ?>
+<?php
+$pageTitle = 'That time at the mall';
+
+include 'inc/header.php'; ?>
   <section>
     <div class="container">
       <div class="entry-list single">

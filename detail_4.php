@@ -1,4 +1,7 @@
-<?php include 'inc/header.php'; ?>
+<?php
+$pageTitle = "Dude, where's my car?";
+
+include 'inc/header.php'; ?>
   <section>
     <div class="container">
       <div class="entry-list single">
