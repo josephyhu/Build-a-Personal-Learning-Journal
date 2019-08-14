@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'My Journal';
+$pageTitle = 'MyJournal';
 
 include 'inc/header.php'; ?>
   <section>
