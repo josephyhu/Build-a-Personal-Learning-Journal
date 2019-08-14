@@ -31,6 +31,9 @@ include 'inc/header.php'; ?>
     </div>
     <div class="edit">
       <p><a href="edit.php">Edit Entry</a></p>
+      <form>
+        <input type="submit" value="Delete Entry" class="button">
+      </form>
     </div>
   </section>
 <?php include 'inc/footer.php'; ?>
