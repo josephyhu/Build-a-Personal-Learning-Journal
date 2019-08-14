@@ -3,7 +3,7 @@
     <div class="container">
       <div class="entry-list single">
         <article>
-          <h1>The best day I’ve ever had</h1>
+          <h1>That time at the mall</h1>
           <time datetime="2016-01-31">January 31, 2016</time>
           <div class="entry">
             <h3>Time Spent: </h3>
