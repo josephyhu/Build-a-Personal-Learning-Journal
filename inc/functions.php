@@ -3,8 +3,7 @@ function get_entry_list() {
     include 'connection.php';
 
     try {
-        return $db->query('SELECT id, title, date, time_spent,
-                          learned, resources FROM entries ORDER BY date DESC');
+        return $db->query('SELECT * FROM entries ORDER BY date DESC');
     } catch (Exception $e) {
         echo "Error:" . $e->getMessage() . "<br>";
         return array();
