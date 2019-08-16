@@ -1,27 +1,26 @@
 <?php
-$pageTitle = 'MyJournal';
+require 'inc/functions.php';
+
+$pageTitle = "MyJournal";
 
 include 'inc/header.php'; ?>
   <section>
     <div class="container">
-      <h1><?php echo $pageTitle; ?></h1>
       <div class="entry-list">
-        <article>
-          <h2><a href="detail.php">The best day I’ve ever had</a></h2>
-          <time datetime="2016-01-31">January 31, 2016</time>
-        </article>
-        <article>
-          <h2><a href="detail_2.php">The absolute worst day I’ve ever had</a></h2>
-          <time datetime="2016-01-31">January 31, 2016</time>
-        </article>
-        <article>
-          <h2><a href="detail_3.php">That time at the mall</a></h2>
-          <time datetime="2016-01-31">January 31, 2016</time>
-        </article>
-        <article>
-          <h2><a href="detail_4.php">Dude, where’s my car?</a></h2>
-          <time datetime="2016-01-31">January 31, 2016</time>
-        </article>
+        <?php
+        $page = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_NUMBER_INT);
+        if (empty($page)) {
+            $page = 1;
+        }
+
+        foreach (get_entry_list() as $item) {
+            echo "<article>";
+            echo "<h2><a href='detail.php?p=". $page . "'>" . $item['title'] . "</a></h2>";
+            echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time>";
+            echo "</article>";
+            $page++;
+        }
+        ?>
       </div>
     </div>
   </section>

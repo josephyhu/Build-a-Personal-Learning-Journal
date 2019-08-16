@@ -1,4 +1,6 @@
 <?php
+require 'inc/functions.php';
+
 $pageTitle = 'Edit Entry';
 
 include 'inc/header.php'; ?>
@@ -17,10 +19,8 @@ include 'inc/header.php'; ?>
           <textarea id="what-i-learned" rows="5" name="whatILearned" required></textarea>
           <label for="resources-to-remember">Resources to Remember</label>
           <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"></textarea>
-          <label for="tags">Tags (separate with commas)</label>
-          <textarea id="tags", rows="5", name="tags"></textarea>
           <input type="submit" value="Publish Entry" class="button">
-          <a href="#" class="button button-secondary">Cancel</a>
+          <a href="index.php" class="button button-secondary">Cancel</a>
         </form>
       </div>
     </div>
