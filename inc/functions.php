@@ -10,7 +10,7 @@ function get_entry_list() {
     }
 }
 
-function add_entry($title, $date, $timeSpent, $whatILearned, $ResourcesToRemember) {
+function add_entry($title, $date, $time, $learned, $resources) {
     include 'connection.php';
 
     $sql = 'INSERT INTO entries (title, date, time_spent, learned, resources) VALUES(?, ?, ?, ?, ?)';
@@ -18,9 +18,9 @@ function add_entry($title, $date, $timeSpent, $whatILearned, $ResourcesToRemembe
         $results = $db->prepare($sql);
         $results->bindValue(1, $title, PDO::PARAM_STR);
         $results->bindValue(2, $date, PDO::PARAM_STR);
-        $results->bindValue(3, $timeSpent, PDO::PARAM_STR);
-        $results->bindValue(4, $whatILearned, PDO::PARAM_STR);
-        $results->bindValue(5, $ResourcesToRemember, PDO::PARAM_STR);
+        $results->bindValue(3, $time, PDO::PARAM_STR);
+        $results->bindValue(4, $learned, PDO::PARAM_STR);
+        $results->bindValue(5, $resources, PDO::PARAM_STR);
         $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
