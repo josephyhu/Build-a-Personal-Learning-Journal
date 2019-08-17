@@ -29,8 +29,8 @@ include 'inc/header.php'; ?>
       </div>
     </div>
     <div class="edit">
-      <p><a href="edit.php?id=<? echo $id; ?>">Edit Entry</a></p>
-      <p><a href="delete.php">Delete Entry</a></p>
+      <p><a href="edit.php?id=<?php echo $id; ?>">Edit Entry</a></p>
+      <p><a href="delete.php?id=<?php echo $id; ?>">Delete Entry</a></p>
     </div>
   </section>
 <?php include 'inc/footer.php'; ?>

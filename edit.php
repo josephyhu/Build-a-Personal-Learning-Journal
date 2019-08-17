@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
 
     if (edit_entry($title, $date, $time, $learned, $resources, $id)) {
-        header('Location: index.php');
+        echo 'Successfully edited entry';
     } else {
         echo 'Unable to edit entry';
     }
@@ -38,7 +38,7 @@ include 'inc/header.php'; ?>
           <textarea id="what-i-learned" rows="5" name="whatILearned" value="<?php echo $item[0]['learned']; ?>"><?php echo $item[0]['learned']; ?></textarea>
           <label for="resources-to-remember">Resources to Remember</label>
           <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember" value="<?php echo $item[0]['resources']; ?>"><?php echo $item[0]['resources']; ?></textarea>
-          <input type="hidden" name="id" value="<? echo $id; ?>">
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
           <input type="submit" value="Publish Entry" class="button">
           <a href="index.php" class="button button-secondary">Cancel</a>
         </form>
