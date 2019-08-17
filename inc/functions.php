@@ -10,13 +10,14 @@ function get_entry_list() {
     }
 }
 
-function get_entry_details() {
+function get_entry($id) {
     include 'connection.php';
 
-    $sql = 'SELECT * FROM entries ORDER BY date DESC LIMIT 1';
+    $sql = 'SELECT * FROM entries WHERE id = ?';
 
     try {
         $results = $db->prepare($sql);
+        $results->bindValue(1, $id, PDO::PARAM_INT);
         $results->execute();
     } catch (Exception $e) {
         echo "Error:" . $e->getMessage() . "<br>";
@@ -36,21 +37,6 @@ function add_entry($title, $date, $time, $learned, $resources) {
         $results->bindValue(3, $time, PDO::PARAM_STR);
         $results->bindValue(4, $learned, PDO::PARAM_STR);
         $results->bindValue(5, $resources, PDO::PARAM_STR);
-        $results->execute();
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage() . "<br>";
-        return false;
-    }
-    return true;
-}
-
-function delete_entry($id) {
-    include 'connection.php';
-
-    $sql = 'DELETE FROM entries WHERE id = ?';
-    try {
-        $results = $db->prepare($sql);
-        $results->bindValue(1, $id, PDO::PARAM_INT);
         $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";

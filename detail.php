@@ -1,64 +1,37 @@
 <?php
 require 'inc/functions.php';
 
-foreach (get_entry_details() as $item) {
-    $section = $item['title'];
+if (isset($_GET['id'])) {
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $item = get_entry($id);
 }
 
-if (isset($_POST['delete'])) {
-    if (delete_entry(filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_NUMBER_INT))) {
-        header('Location: index.php?msg=Deleted+entry');
-        exit;
-  } else {
-        header('Location: index.php?msg=Unable+to=delete+entry');
-        exit;
-  }
-}
-
-if (isset($_GET['msg'])) {
-    $error_message = trim(filter_input(INPUT_GET, 'msg', FILTER_SANITIZE_STRING));
-}
+$section = $item['title'];
 
 include 'inc/header.php'; ?>
   <section>
     <div class="container">
       <div class="entry-list single">
-        <?php
-        foreach (get_entry_details() as $item) {
-            echo "<article>";
-            echo "<h1>" . $item['title'] . "</h1>";
-            echo "<time datetime='" . $item['date'] . "'>" . date('F d, Y', strtotime($item['date'])) . "</time>";
-            echo "<div class='entry'>";
-            echo "<h3>Time Spent: </h3>";
-            echo "<p>" . $item['time_spent'] . "</p>";
-            echo "</div>";
-            echo "<div class='entry'>";
-            echo "<h3>What I Learned:</h3>";
-            echo "<p>" . $item['learned'] . "</p>";
-            echo "<div class='entry'>";
-            echo "<h3>Resources to Remember:</h3";
-            echo "<p>" . $item['resources'] . "</p>";
-            echo "</div>";
-            echo "</article>";
-       }
-       ?>
+        <article>
+          <h1><?php $item['title']; ?></h1>
+          <time datetime="<?php $item['date']; ?>"><?php date('F d, Y', strtotime($item['date'])); ?></time>
+          <div class='entry'>
+            <h3>Time Spent: </h3>
+            <p><?php $item['time_spent']; ?></p>
+          </div>
+          <div class='entry'>
+            <h3>What I Learned:</h3>
+            <p><?php $item['learned']; ?></p>
+          </div>
+          <div class='entry'>
+            <h3>Resources to Remember:</h3>
+            <p><?php $item['resources']; ?></p>
+          </div>
+        </article>
       </div>
     </div>
     <div class="edit">
       <p><a href="edit.php">Edit Entry</a></p>
-      <?php
-      if (isset($error_message)) {
-          echo "<p>$error_message</p>";
-      }
-      ?>
-      <?php
-      foreach (get_entry_list() as $item) {
-          echo "<form method='post' action='detail.php'>\n";
-          echo "<input type='hidden' name='delete' value='" . $item['id'] . "'>\n";
-          echo "<input type='submit' value='Delete Entry' class='button'>\n";
-          echo "</form>";
-       }
-       ?>
     </div>
   </section>
 <?php include 'inc/footer.php'; ?>

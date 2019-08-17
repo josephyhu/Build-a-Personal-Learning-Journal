@@ -10,9 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
+    $tag = trim(filter_input(INPUT_POST, 'tag', FILTER_SANITIZE_STRING));
 
     if (add_entry($title, $date, $time, $learned, $resources)) {
-        header('Location: index.php');
+        header('Location: detail.php');
     } else {
         echo 'Could not add entry';
     }
