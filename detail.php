@@ -50,7 +50,7 @@ include 'inc/header.php'; ?>
       </div>
     </div>
     <div class="edit">
-      <p><a href="edit.php">Edit Entry</a></p>
+      <p><a href="edit.php?id=<? echo $id; ?>">Edit Entry</a></p>
       <form method="post" action="index.php">
         <input type="hidden" value="<?php $id; ?>" name="delete">
         <input type="submit" class="button" value="Delete Entry">

@@ -1,8 +1,9 @@
 <?php
 require 'inc/functions.php';
 
-$section = 'New Entry';
 $title = $date = $time = $learned = $resources = '';
+
+$section = 'New Entry';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
