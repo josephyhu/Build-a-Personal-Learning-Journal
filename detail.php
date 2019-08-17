@@ -5,6 +5,20 @@ foreach (get_entry_details() as $item) {
     $section = $item['title'];
 }
 
+if (isset($_POST['delete'])) {
+    if (delete_entry(filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_NUMBER_INT))) {
+        header('Location: index.php?msg=Deleted+entry');
+        exit;
+  } else {
+        header('Location: index.php?msg=Unable+to=delete+entry');
+        exit;
+  }
+}
+
+if (isset($_GET['msg'])) {
+    $error_message = trim(filter_input(INPUT_GET, 'msg', FILTER_SANITIZE_STRING));
+}
+
 include 'inc/header.php'; ?>
   <section>
     <div class="container">
@@ -32,9 +46,19 @@ include 'inc/header.php'; ?>
     </div>
     <div class="edit">
       <p><a href="edit.php">Edit Entry</a></p>
-      <form>
-        <input type="submit" value="Delete Entry" class="button">
-      </form>
+      <?php
+      if (isset($error_message)) {
+          echo "<p>$error_message</p>";
+      }
+      ?>
+      <?php
+      foreach (get_entry_list() as $item) {
+          echo "<form method='post' action='detail.php'>";
+          echo "<input type='hidden' name='delete' value='" . $item['id'] . "'>";
+          echo "<input type='submit' value='Delete Entry' class='button'>";
+         echo "</form>";
+       }
+       ?>
     </div>
   </section>
 <?php include 'inc/footer.php'; ?>

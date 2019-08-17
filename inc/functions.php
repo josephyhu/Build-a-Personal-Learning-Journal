@@ -39,3 +39,18 @@ function add_entry($title, $date, $time, $learned, $resources) {
     }
     return true;
 }
+
+function delete_entry($id) {
+    include 'connection.php';
+
+    $sql = 'DELETE FROM entries WHERE id = ?';
+    try {
+        $results = $db->prepare($sql);
+        $results->bindValue(1, $id, PDO::PARAM_INT);
+        $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return false;
+    }
+    return true;
+}
