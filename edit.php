@@ -1,7 +1,22 @@
 <?php
 require 'inc/functions.php';
 
-$pageTitle = 'Edit Entry';
+$section = 'Edit Entry';
+$title = $date = $time = $learned = $resources = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
+    $date = trim(filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING));
+    $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_STRING));
+    $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
+    $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
+
+    if (edit_entry($title, $date, $time, $learned, $resources)) {
+        header('Location: index.php');
+    } else {
+        echo 'Could not add entry';
+    }
+}
 
 include 'inc/header.php'; ?>
   <section>

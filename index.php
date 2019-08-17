@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$pageTitle = "MyJournal";
+$section = 'Home';
 
 include 'inc/header.php'; ?>
   <section>

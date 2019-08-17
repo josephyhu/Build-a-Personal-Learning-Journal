@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$pageTitle = 'New Entry';
+$section = 'New Entry';
 $title = $date = $time = $learned = $resources = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

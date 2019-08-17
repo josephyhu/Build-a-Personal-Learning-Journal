@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$pageTitle = "The best day I've ever had";
+$section = 'Details';
 
 include 'inc/header.php'; ?>
   <section>
