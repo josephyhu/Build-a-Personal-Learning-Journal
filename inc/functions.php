@@ -13,12 +13,16 @@ function get_entry_list() {
 function get_entry_details() {
     include 'connection.php';
 
+    $sql = 'SELECT * FROM entries ORDER BY date DESC LIMIT 1';
+
     try {
-        return $db->query('SELECT * FROM entries ORDER BY date DESC LIMIT 1');
+        $results = $db->prepare($sql);
+        $results->execute();
     } catch (Exception $e) {
         echo "Error:" . $e->getMessage() . "<br>";
         return array();
     }
+    return $results->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function add_entry($title, $date, $time, $learned, $resources) {
