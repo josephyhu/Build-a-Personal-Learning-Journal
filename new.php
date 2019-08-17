@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
-    $tag = trim(filter_input(INPUT_POST, 'tag', FILTER_SANITIZE_STRING));
 
     if (add_entry($title, $date, $time, $learned, $resources)) {
         header('Location: index.php');
@@ -29,7 +28,7 @@ include 'inc/header.php'; ?>
           <input id="title" type="text" name="title" value="<?php echo htmlspecialchars($title); ?>" required><br>
           <label for="date">Date<span style="color:red">*</span></label>
           <input id="date" type="date" name="date" value="<?php echo htmlspecialchars($date); ?>" required><br>
-          <label for="time-spent">Time Spent<span style="color:red">*</span></label>
+          <label for="time-spent">Time Spent (hours/min)<span style="color:red">*</span></label>
           <input id="time-spent" type="text" name="timeSpent" value="<?php echo htmlspecialchars($time); ?>" required><br>
           <label for="what-i-learned">What I Learned<span style="color:red">*</span></label>
           <textarea id="what-i-learned" rows="5" name="whatILearned" value="<?php echo htmlspecialchars($learned); ?>" required></textarea>
