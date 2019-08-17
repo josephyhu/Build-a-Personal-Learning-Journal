@@ -20,7 +20,7 @@ function get_entry_details() {
         $results->execute();
     } catch (Exception $e) {
         echo "Error:" . $e->getMessage() . "<br>";
-        return array();
+        return false;
     }
     return $results->fetchAll(PDO::FETCH_ASSOC);
 }

@@ -10,7 +10,7 @@ include 'inc/header.php'; ?>
         <?php
         foreach (get_entry_list() as $item) {
             echo "<article>";
-            echo "<h2><a href='detail.php'>" . $item['title'] . "</a></h2>";
+            echo "<h2><a href='detail.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
             echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time>";
             echo "</article>";
         }
