@@ -8,7 +8,7 @@ include 'inc/header.php'; ?>
     <div class="container">
       <div class="entry-list single">
         <?php
-        foreach (get_entry_list() as $item) {
+        foreach (get_entry_details() as $item) {
             echo "<article>";
             echo "<h1>" . $item['title'] . "</h1>";
             echo "<time datetime='" . $item['date'] . "'>" . date('F d, Y', strtotime($item['date'])) . "</time>";

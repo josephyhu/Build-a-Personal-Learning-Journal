@@ -3,7 +3,18 @@ function get_entry_list() {
     include 'connection.php';
 
     try {
-        return $db->query('SELECT * FROM entries ORDER BY date DESC');
+        return $db->query('SELECT title, date FROM entries ORDER BY date DESC');
+    } catch (Exception $e) {
+        echo "Error:" . $e->getMessage() . "<br>";
+        return array();
+    }
+}
+
+function get_entry_details() {
+    include 'connection.php';
+
+    try {
+        return $db->query('SELECT * FROM entries ORDER BY date DESC LIMIT 1');
     } catch (Exception $e) {
         echo "Error:" . $e->getMessage() . "<br>";
         return array();
