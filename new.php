@@ -27,7 +27,7 @@ include 'inc/header.php'; ?>
           <label for="title">Title<span style="color:red">*</span></label>
           <input id="title" type="text" name="title" value="<?php echo htmlspecialchars($title); ?>" required><br>
           <label for="date">Date<span style="color:red">*</span></label>
-          <input id="date" type="date" name="date" value="<?php echo htmlspecialchars($title); ?>" required><br>
+          <input id="date" type="date" name="date" value="<?php echo htmlspecialchars($date); ?>" required><br>
           <label for="time-spent">Time Spent<span style="color:red">*</span></label>
           <input id="time-spent" type="text" name="timeSpent" value="<?php echo htmlspecialchars($timeSpent); ?>" required><br>
           <label for="what-i-learned">What I Learned<span style="color:red">*</span></label>
