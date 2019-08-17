@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (edit_entry($title, $date, $time, $learned, $resources, $id)) {
         header('Location: index.php');
     } else {
-        echo 'Could not edit entry';
+        echo 'Unable to edit entry';
     }
 }
 

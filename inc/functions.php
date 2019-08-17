@@ -78,4 +78,4 @@ function delete_entry($id) {
         return false;
     }
     return true;
-  }
+}

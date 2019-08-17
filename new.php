@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (add_entry($title, $date, $time, $learned, $resources)) {
         header('Location: index.php');
     } else {
-        echo 'Could not add entry';
+        echo 'Unable to add entry';
     }
 }
 
