@@ -1,7 +1,9 @@
 <?php
 require 'inc/functions.php';
 
-$section = 'Entry';
+foreach (get_entry_details() as $item) {
+    $section = $item['title'];
+}
 
 include 'inc/header.php'; ?>
   <section>
