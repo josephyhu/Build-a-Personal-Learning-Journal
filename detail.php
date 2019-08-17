@@ -53,10 +53,10 @@ include 'inc/header.php'; ?>
       ?>
       <?php
       foreach (get_entry_list() as $item) {
-          echo "<form method='post' action='detail.php'>";
-          echo "<input type='hidden' name='delete' value='" . $item['id'] . "'>";
-          echo "<input type='submit' value='Delete Entry' class='button'>";
-         echo "</form>";
+          echo "<form method='post' action='detail.php'>\n";
+          echo "<input type='hidden' name='delete' value='" . $item['id'] . "'>\n";
+          echo "<input type='submit' value='Delete Entry' class='button'>\n";
+          echo "</form>";
        }
        ?>
     </div>
