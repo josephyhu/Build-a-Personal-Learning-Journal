@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tag = trim(filter_input(INPUT_POST, 'tag', FILTER_SANITIZE_STRING));
 
     if (add_entry($title, $date, $time, $learned, $resources)) {
-        header('Location: detail.php');
+        header('Location: index.php');
     } else {
         echo 'Could not add entry';
     }
