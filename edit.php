@@ -35,7 +35,7 @@ include 'inc/header.php'; ?>
           <label for="resources-to-remember">Resources to Remember</label>
           <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember" value="<?php echo htmlspecialchars($resources); ?>"></textarea>
           <input type="submit" value="Publish Entry" class="button">
-          <a href="index.php" class="button button-secondary">Cancel</a>
+          <a href="detail.php" class="button button-secondary">Cancel</a>
         </form>
       </div>
     </div>

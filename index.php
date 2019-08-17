@@ -13,6 +13,7 @@ include 'inc/header.php'; ?>
             echo "<h2><a href='detail.php'>" . $item['title'] . "</a></h2>";
             echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time>";
             echo "</article>";
+        }
         ?>
       </div>
     </div>
