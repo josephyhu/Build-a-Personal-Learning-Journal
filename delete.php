@@ -9,11 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 }
 if (delete_entry($id)) {
-    echo 'Successfully deleted entry';
+    echo 'Successfully deleted entry.';
     header('refresh: 1; url = index.php');
 } else {
     echo 'Unable to delete entry. Try again.';
-    header('refresh: 1; url = index.php');
+    header('refresh: 1; url = detail.php?id="' . $id . '"');
 }
 include 'inc/header.php';
 

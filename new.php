@@ -13,11 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
 
     if (add_entry($title, $date, $time, $learned, $resources)) {
-        echo 'Successfully added entry';
+        echo 'Successfully added entry.';
         header('refresh: 1; url = index.php');
     } else {
         echo 'Unable to add entry. Try again.';
-        header('refresh: 1; url = index.php');
     }
 }
 

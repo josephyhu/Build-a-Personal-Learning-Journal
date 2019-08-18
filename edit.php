@@ -16,11 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
 
     if (edit_entry($title, $date, $time, $learned, $resources, $id)) {
-        echo 'Successfully edited entry';
+        echo 'Successfully edited entry.';
         header('refresh: 1; url = detail.php?id="'. $id . '"');
     } else {
         echo 'Unable to edit entry. Try again.';
-        header('refresh: 1; url = detail.php?id="' . $id . '"');
     }
 }
 
@@ -31,40 +30,15 @@ include 'inc/header.php'; ?>
         <h2>Edit Entry</h2>
         <form method="post">
           <label for="title">Title</label>
-          <?php if (isset($_POST['id'])) {
-              echo '<input id="title" type="text" name="title"><br>';
-          } else {
-              echo '<input id="title" type="text" name="title" value="' . $item[0]['title'] . '"><br>';
-          }
-          ?>
+          <input id="title" type="text" name="title" value="<?php echo $item[0]['title']; ?>"><br>
           <label for="date">Date</label>
-          <?php if (isset($_POST['id'])) {
-              echo '<input id="date" type="date" name="date"><br>';
-          } else {
-              echo '<input id="date" type="date" name="date" value="' . $item[0]['date'] . '"><br>';
-          }
-          ?>
+          <input id="date" type="date" name="date" value="<?php echo $item[0]['date']; ?>"><br>
           <label for="time-spent">Time Spent (hours/min)</label>
-          <?php if (isset($_POST['id'])) {
-              echo '<input id="time-spent" type="text" name="timeSpent"><br>';
-          } else {
-              echo '<input id="time-spent" type="text" name="timeSpent" value="' . $item[0]['time_spent'] . '"><br>';
-          }
-          ?>
+          <input id="time-spent" type="text" name="timeSpent" value="<?php echo $item[0]['time_spent']; ?>"><br>
           <label for="what-i-learned">What I Learned</label>
-          <?php if (isset($_POST['id'])) {
-              echo '<textarea id="what-i-learned" rows="5" name="whatILearned">/textarea>';
-          } else {
-              echo '<textarea id="what-i-learned" rows="5" name="whatILearned">' . $item[0]['learned'] . '</textarea>';
-          }
-          ?>
+          <textarea id="what-i-learned" rows="5" name="whatILearned"><?php echo $item[0]['learned']; ?></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>
-          <?php if (isset($_POST['id'])) {
-              echo '<textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"></textarea>';
-          } else {
-              echo '<textarea id="resources-to-remember" rows="5" name="ResourcesToRemember">' . $item[0]['resources'] . '</textarea>';
-          }
-          ?>
+          <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"><?php echo $item[0]['resources']; ?></textarea>
           <input type="hidden" name="id" value="<?php echo $id; ?>">
           <input type="submit" value="Edit Entry" class="button">
           <a href="index.php" class="button button-secondary">Cancel</a>

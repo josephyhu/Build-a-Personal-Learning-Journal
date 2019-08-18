@@ -24,7 +24,7 @@ include 'inc/header.php'; ?>
           <div class='entry'>
             <h3>Resources to Remember:</h3>
             <ul>
-              <?php foreach (explode(", ", $item[0]['resources']) as $resource) {
+              <?php foreach (explode(trim(", "), $item[0]['resources']) as $resource) {
                   echo "<li>$resource</li>";
               }
               ?>
