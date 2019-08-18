@@ -23,7 +23,12 @@ include 'inc/header.php'; ?>
           </div>
           <div class='entry'>
             <h3>Resources to Remember:</h3>
-            <p><?php echo $item[0]['resources']; ?></p>
+            <ul>
+              <?php foreach (explode(", ", $item[0]['resources']) as $resource) {
+                  echo "<li>$resource</li>";
+              }
+              ?>
+            </ul>
           </div>
         </article>
       </div>

@@ -56,7 +56,7 @@ include 'inc/header.php'; ?>
               echo "<textarea id='what-i-learned' rows='5' name='whatILearned'>" . $item[0]['learned'] . "</textarea>";
           }
           ?>
-          <label for="resources-to-remember">Resources to Remember</label>
+          <label for="resources-to-remember">Resources to Remember (separate with commas)</label>
           <?php if (isset($_POST['id'])) {
               echo "<textarea id='resources-to-remember' rows='5' name='ResourcesToRemember'>" . htmlspecialchars($resources) . "</textarea>";
           } else {
