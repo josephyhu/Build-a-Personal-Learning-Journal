@@ -35,9 +35,10 @@ include 'inc/header.php'; ?>
           <div class='entry'>
             <h3>Tags:</h3>
             <?php if (!empty($item[0]['tags'])) {
+                $tags = explode(trim(", "), $item[0]['tags']);
                 echo "<ul>";
-                foreach (explode(trim(", "), $item[0]['tags']) as $tag) {
-                    echo "<li>$tag</li>";
+                foreach ($tags as $tag) {
+                    echo "<li><a href='tags.php?id=" . $item[0]['id'] . "&t=" . trim($tag) . "'>" . $tag . "</a></li>";
                 }
                 echo "</ul>";
               }

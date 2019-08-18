@@ -14,7 +14,6 @@ function get_entry($id) {
     include 'connection.php';
 
     $sql = 'SELECT * FROM entries WHERE id = ?';
-
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $id, PDO::PARAM_INT);
