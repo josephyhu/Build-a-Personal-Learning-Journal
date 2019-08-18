@@ -13,7 +13,7 @@ function get_entry_list() {
 function get_entry($id) {
     include 'connection.php';
 
-    $sql = 'SELECT * FROM entries WHERE id = ?';
+    $sql = "SELECT * FROM entries WHERE id = ?";
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $id, PDO::PARAM_INT);;
@@ -30,7 +30,8 @@ function get_entry_by_tag($tag) {
 
     $sql = "SELECT * FROM entries WHERE tags LIKE '%$tag%'";
     try {
-        $results = $db->query($sql);
+        $results = $db->prepare($sql);
+        $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
         return false;
