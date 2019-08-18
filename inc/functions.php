@@ -16,8 +16,21 @@ function get_entry($id) {
     $sql = 'SELECT * FROM entries WHERE id = ?';
     try {
         $results = $db->prepare($sql);
-        $results->bindValue(1, $id, PDO::PARAM_INT);
+        $results->bindValue(1, $id, PDO::PARAM_INT);;
         $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return false;
+    }
+    return $results->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function get_entry_by_tag($tag) {
+    include 'connection.php';
+
+    $sql = "SELECT * FROM entries WHERE tags LIKE '%$tag%'";
+    try {
+        $results = $db->query($sql);
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
         return false;

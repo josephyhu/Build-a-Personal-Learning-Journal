@@ -2,8 +2,7 @@
 require 'inc/functions.php';
 
 $tag = filter_input(INPUT_GET, 't', FILTER_SANITIZE_STRING);
-$id = filter_input(INPUT_GET, 'id', FILTER_SANIIZE_NUMBER_INT);
-$item = get_entry($id);
+$item = get_entry_by_tag($tag);
 
 $section = $tag;
 
