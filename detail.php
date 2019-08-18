@@ -23,18 +23,23 @@ include 'inc/header.php'; ?>
           </div>
           <div class='entry'>
             <h3>Resources to Remember:</h3>
-            <ul>
-              <?php foreach (explode(trim(", "), $item[0]['resources']) as $resource) {
-                  echo "<li>$resource</li>";
+            <?php if (!empty($item[0]['resources'])) {
+                echo "<ul>";
+                foreach (explode(trim(", "), $item[0]['resources']) as $resource) {
+                    echo "<li>$resource</li>";
+                }
+                echo "</ul>";
               }
               ?>
-            </ul>
           </div>
           <div class='entry'>
             <h3>Tags:</h3>
-            <ul>
-              <?php foreach (explode(trim(", "), $item[0]['tags']) as $tag) {
-                  echo "<li>$tag</li>";
+            <?php if (!empty($item[0]['tags'])) {
+                echo "<ul>";
+                foreach (explode(trim(", "), $item[0]['tags']) as $tag) {
+                    echo "<li>$tag</li>";
+                }
+                echo "</ul>";
               }
               ?>
             </ul>

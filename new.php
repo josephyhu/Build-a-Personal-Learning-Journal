@@ -11,9 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
-    $tags = trim(filter_input(INPUT_POST, 'tag', FILTER_SANITIZE_STRING));
+    $tags = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
 
-    if (add_entry($title, $date, $time, $learned, $resources)) {
+    if (add_entry($title, $date, $time, $learned, $resources, $tags)) {
         echo 'Successfully added entry.';
         header('refresh: 1; url = index.php');
     } else {

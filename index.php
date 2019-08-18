@@ -14,7 +14,7 @@ include 'inc/header.php'; ?>
             echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time><br>";
             if (!empty($item['tags'])) {
                 foreach (explode(trim(', '), $item['tags']) as $tag) {
-                    echo $tag . " ";
+                    echo $tag . "<br>";
                 }
             }
             echo "</article>";
