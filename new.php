@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$title = $date = $time = $learned = $resources = '';
+$title = $date = $time = $learned = $resources = $tags = '';
 
 $section = 'New Entry';
 
@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
+    $tags = trim(filter_input(INPUT_POST, 'tag', FILTER_SANITIZE_STRING));
 
     if (add_entry($title, $date, $time, $learned, $resources)) {
         echo 'Successfully added entry.';
@@ -36,6 +37,8 @@ include 'inc/header.php'; ?>
           <textarea id="what-i-learned" rows="5" name="whatILearned" required></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>
           <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"></textarea>
+          <label for="tags">Tags (separate with commas)</label>
+          <textarea id="tags" rows="2" name="tags"></textarea>
           <input type="submit" value="Publish Entry" class="button">
           <a href="index.php" class="button button-secondary">Cancel</a>
         </form>

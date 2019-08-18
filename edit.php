@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$title = $date = $time = $learned = $resources = '';
+$title = $date = $time = $learned = $resources = $tags = '';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $item = get_entry($id);
 
@@ -14,8 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
+    $tags = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
 
-    if (edit_entry($title, $date, $time, $learned, $resources, $id)) {
+    if (edit_entry($title, $date, $time, $learned, $resources, $tags, $id)) {
         echo 'Successfully edited entry.';
         header('refresh: 1; url = detail.php?id="'. $id . '"');
     } else {
@@ -39,6 +40,8 @@ include 'inc/header.php'; ?>
           <textarea id="what-i-learned" rows="5" name="whatILearned"><?php echo $item[0]['learned']; ?></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>
           <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"><?php echo $item[0]['resources']; ?></textarea>
+          <label for="tags">Tags (separate with commas)</label>
+          <textarea id="tags" rows="2" name="tags"><?php echo $item[0]['tags']; ?></textarea>
           <input type="hidden" name="id" value="<?php echo $id; ?>">
           <input type="submit" value="Edit Entry" class="button">
           <a href="index.php" class="button button-secondary">Cancel</a>

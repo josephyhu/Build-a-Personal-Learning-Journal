@@ -11,7 +11,12 @@ include 'inc/header.php'; ?>
         foreach (get_entry_list() as $item) {
             echo "<article>";
             echo "<h2><a href='detail.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
-            echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time>";
+            echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time><br>";
+            if (!empty($item['tags'])) {
+                foreach (explode(trim(', '), $item['tags']) as $tag) {
+                    echo $tag . " ";
+                }
+            }
             echo "</article>";
         }
         ?>

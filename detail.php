@@ -30,6 +30,15 @@ include 'inc/header.php'; ?>
               ?>
             </ul>
           </div>
+          <div class='entry'>
+            <h3>Tags:</h3>
+            <ul>
+              <?php foreach (explode(trim(", "), $item[0]['tags']) as $tag) {
+                  echo "<li>$tag</li>";
+              }
+              ?>
+            </ul>
+          </div>
         </article>
       </div>
     </div>
