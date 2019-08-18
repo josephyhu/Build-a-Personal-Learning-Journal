@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$tag = filter_input(INPUT_GET, 't', FILTER_SANITIZE_STRING);
+$tag = filter_input(INPUT_GET, 'tag', FILTER_SANITIZE_STRING);
 
 $section = $tag;
 
