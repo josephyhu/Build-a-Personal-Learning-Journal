@@ -50,7 +50,7 @@ include 'inc/header.php'; ?>
           }
           ?>
           <label for="what-i-learned">What I Learned</label>
-          <?php if (isset($_Post['id'])) {
+          <?php if (isset($_POST['id'])) {
               echo "<textarea id='what-i-learned' rows='5' name='whatILearned'>" . htmlspecialchars($learned) . "</textarea>";
           } else {
               echo "<textarea id='what-i-learned' rows='5' name='whatILearned'>" . $item[0]['learned'] . "</textarea>";
@@ -64,7 +64,7 @@ include 'inc/header.php'; ?>
           }
           ?>
           <input type="hidden" name="id" value="<?php echo $id; ?>">
-          <input type="submit" value="Publish Entry" class="button">
+          <input type="submit" value="Edit Entry" class="button">
           <a href="index.php" class="button button-secondary">Cancel</a>
         </form>
       </div>
