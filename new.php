@@ -14,8 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (add_entry($title, $date, $time, $learned, $resources)) {
         echo 'Successfully added entry';
+        header('refresh: 1; url = index.php');
     } else {
-        echo 'Unable to add entry';
+        echo 'Unable to add entry. Try again.';
+        header('refresh: 1; url = index.php');
     }
 }
 
@@ -26,15 +28,15 @@ include 'inc/header.php'; ?>
         <h2>New Entry</h2>
         <form method="post">
           <label for="title">Title<span style="color:red">*</span></label>
-          <input id="title" type="text" name="title" value="<?php echo htmlspecialchars($title); ?>" required><br>
+          <input id="title" type="text" name="title" required><br>
           <label for="date">Date<span style="color:red">*</span></label>
-          <input id="date" type="date" name="date" value="<?php echo htmlspecialchars($date); ?>" required><br>
+          <input id="date" type="date" name="date" required><br>
           <label for="time-spent">Time Spent (hours/min)<span style="color:red">*</span></label>
-          <input id="time-spent" type="text" name="timeSpent" value="<?php echo htmlspecialchars($time); ?>" required><br>
+          <input id="time-spent" type="text" name="timeSpent" required><br>
           <label for="what-i-learned">What I Learned<span style="color:red">*</span></label>
-          <textarea id="what-i-learned" rows="5" name="whatILearned" required><?php echo htmlspecialchars($learned); ?></textarea>
+          <textarea id="what-i-learned" rows="5" name="whatILearned" required></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>
-          <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"><?php echo htmlspecialchars($resources); ?></textarea>
+          <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"></textarea>
           <input type="submit" value="Publish Entry" class="button">
           <a href="index.php" class="button button-secondary">Cancel</a>
         </form>

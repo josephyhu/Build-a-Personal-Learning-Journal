@@ -10,8 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 if (delete_entry($id)) {
     echo 'Successfully deleted entry';
+    header('refresh: 1; url = index.php');
 } else {
-    echo 'Unable to delete entry';
+    echo 'Unable to delete entry. Try again.';
+    header('refresh: 1; url = index.php');
 }
 include 'inc/header.php';
 
