@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$title = $date = $time = $learned = $resources = $tags = '';
+$title = $date = $time = $learned = $resources = $tag = '';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $item = get_entry($id);
 
@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
-    $tags = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
+    $tag = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
 
-    if (edit_entry($title, $date, $time, $learned, $resources, $tags, $id)) {
+    if (edit_entry($title, $date, $time, $learned, $resources, $tag, $id)) {
         echo 'Successfully edited entry.';
         header('refresh: 1; url = detail.php?id="'. $id . '"');
     } else {

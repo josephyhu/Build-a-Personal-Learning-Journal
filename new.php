@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$title = $date = $time = $learned = $resources = $tags = '';
+$title = $date = $time = $learned = $resources = $tag = '';
 
 $section = 'New Entry';
 
@@ -11,9 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
-    $tags = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
+    $tag = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
 
-    if (add_entry($title, $date, $time, $learned, $resources, $tags)) {
+    if (add_entry($title, $date, $time, $learned, $resources, $tag)) {
         echo 'Successfully added entry.';
         header('refresh: 1; url = index.php');
     } else {
