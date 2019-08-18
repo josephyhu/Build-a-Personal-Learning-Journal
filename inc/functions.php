@@ -10,6 +10,17 @@ function get_entry_list() {
     }
 }
 
+function get_entry_list_by_tag($tag) {
+    include 'connection.php';
+
+    try {
+        return $db->query("SELECT id, title, date FROM entries WHERE tags LIKE '%$tag%' ORDER BY date DESC");
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return array();
+    }
+}
+
 function get_entry($id) {
     include 'connection.php';
 
@@ -17,20 +28,6 @@ function get_entry($id) {
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $id, PDO::PARAM_INT);;
-        $results->execute();
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage() . "<br>";
-        return false;
-    }
-    return $results->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function get_entry_by_tag($tag) {
-    include 'connection.php';
-
-    $sql = "SELECT * FROM entries WHERE tags LIKE '%$tag%'";
-    try {
-        $results = $db->prepare($sql);
         $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";

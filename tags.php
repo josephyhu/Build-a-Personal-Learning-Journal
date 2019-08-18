@@ -2,7 +2,6 @@
 require 'inc/functions.php';
 
 $tag = filter_input(INPUT_GET, 't', FILTER_SANITIZE_STRING);
-$item = get_entry_by_tag($tag);
 
 $section = $tag;
 
@@ -10,10 +9,14 @@ include 'inc/header.php'; ?>
   <section>
     <div class="container">
       <div class="entry-list">
-        <article>
-          <h2><a href="detail.php?id=<?php echo $item[0]['id']; ?>"><?php echo $item[0]['title']; ?></a></h2>
-          <time datetime="<?php $item[0]['date']; ?>"><?php echo date("F d, Y", strtotime($item[0]['date'])); ?></time>
-        </article>
+        <?php
+        foreach (get_entry_list_by_tag($tag) as $item) {
+            echo "<article>";
+            echo "<h2><a href='detail.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
+            echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time><br>";
+            echo "</article>";
+        }
+        ?>
       </div>
     </div>
   </section>
