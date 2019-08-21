@@ -59,7 +59,7 @@ function add_entry($title, $date, $time, $learned, $resources, $tag) {
 function edit_entry($title, $date, $time, $learned, $resources, $tag, $id) {
     include 'connection.php';
 
-    $sql = 'UPDATE entries SET title = ?, date = ?, time_spent = ?, learned = ?, resources = ?, tags = ?, WHERE id = ?';
+    $sql = 'UPDATE entries SET title = ?, date = ?, time_spent = ?, learned = ?, resources = ?, tags = ? WHERE id = ?';
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $title, PDO::PARAM_STR);
