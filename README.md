@@ -1,2 +1,2 @@
 # Build a Personal Learning Journal
- 3rd Treehouse PHP Techdegree project.
+3rd Treehouse PHP Techdegree project.
