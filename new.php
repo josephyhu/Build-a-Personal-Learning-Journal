@@ -8,13 +8,13 @@ $section = 'New Entry';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
     $date = trim(filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING));
-    $timeH = trim(filter_input(INPUT_POST, 'timeSpentH', FILTER_SANITIZE_NUMBER_INT));
-    $timeM = trim(filter_input(INPUT_POST, 'timeSpentM', FILTER_SANITIZE_NUMBER_INT));
+    $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_NUMBER_INT));
+    $timeUnits = trim(filter_input(INPUT_POST, 'timeSpentUnits', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
     $tag = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
 
-    if (add_entry($title, $date, $timeH, $timeM, $learned, $resources, $tag)) {
+    if (add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag)) {
         echo 'Successfully added entry.';
         header('refresh: 1; url = index.php');
     } else {
@@ -33,8 +33,16 @@ include 'inc/header.php'; ?>
           <label for="date">Date<span style="color:red">*</span></label>
           <input id="date" type="date" name="date" required><br>
           <label for="time-spent">Time Spent<span style="color:red">*</span></label>
-          <input id="time-spent" type="number" name="timeSpentH" required><?php echo ' hour(s)'; ?>
-          <input id="time-spent" type="number" name="timeSpentM" required><?php echo ' minute(s)'; ?>
+          <input id="time-spent" type="number" name="timeSpent" required>
+          <input id="time-spent" name="timeSpentUnits" list="units" required>
+          <datalist id="units">
+            <option value="Year(s)">
+            <option value="Month(s)">
+            <option value="Week(s)">
+            <option value="Day(s)">
+            <option value="Hour(s)">
+            <option value="Minute(s)">
+          </datalist>
           <label for="what-i-learned">What I Learned<span style="color:red">*</span></label>
           <textarea id="what-i-learned" rows="5" name="whatILearned" required></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>

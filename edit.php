@@ -11,13 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
     $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
     $date = trim(filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING));
-    $timeH = trim(filter_input(INPUT_POST, 'timeSpentH', FILTER_SANITIZE_NUMBER_INT));
-    $timeM = trim(filter_input(INPUT_POST, 'timeSpentM', FILTER_SANITIZE_NUMBER_INT));
+    $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_NUMBER_INT));
+    $timeUnits = trim(filter_input(INPUT_POST, 'timeSpentUnits', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
     $tag = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
 
-    if (edit_entry($title, $date, $timeH, $timeM, $learned, $resources, $tag, $id)) {
+    if (edit_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag, $id)) {
         echo 'Successfully edited entry.';
         header('refresh: 1; url = detail.php?id="'. $id . '"');
     } else {
@@ -36,8 +36,16 @@ include 'inc/header.php'; ?>
           <label for="date">Date</label>
           <input id="date" type="date" name="date" value="<?php echo $item[0]['date']; ?>"><br>
           <label for="time-spent">Time Spent</label>
-          <input id="time-spent" type="number" name="timeSpentH" value="<?php echo $item[0]['time_spent_h']; ?>"><?php echo ' hour(s)'; ?>
-          <input id="time-spent" type="number" name="timeSpentM" value="<?php echo $item[0]['time_spent_m']; ?>"><?php echo ' minute(s)'; ?><br>
+          <input id="time-spent" type="number" name="timeSpent" value="<?php echo $item[0]['time_spent']; ?>">
+          <input id="time-spent" name="timeSpentUnits" list="units" value="<?php echo $item[0]['time_units']; ?>">
+          <datalist id="units">
+            <option value="Year(s)">
+            <option value="Month(s)">
+            <option value="Week(s)">
+            <option value="Day(s)">
+            <option value="Hour(s)">
+            <option value="Minute(s)">
+          </datalist>
           <label for="what-i-learned">What I Learned</label>
           <textarea id="what-i-learned" rows="5" name="whatILearned"><?php echo $item[0]['learned']; ?></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>

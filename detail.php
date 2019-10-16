@@ -15,7 +15,7 @@ include 'inc/header.php'; ?>
           <time datetime="<?php $item[0]['date']; ?>"><?php echo date('F d, Y', strtotime($item[0]['date'])); ?></time>
           <div class='entry'>
             <h3>Time Spent: </h3>
-            <p><?php echo $item[0]['time_spent_h'] . ' hour(s) ' . $item[0]['time_spent_m'] . ' minute(s)'; ?></p>
+            <p><?php echo $item[0]['time_spent'] . " " . $item[0]['time_units']; ?></p>
           </div>
           <div class='entry'>
             <h3>What I Learned:</h3>
