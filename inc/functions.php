@@ -36,7 +36,7 @@ function get_entry($id) {
     return $results->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function add_entry($title, $date, $timeH, $timeUnits, $learned, $resources, $tag) {
+function add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag) {
     include 'connection.php';
 
     $sql = 'INSERT INTO entries (title, date, time_spent, time_units, learned, resources, tags) VALUES (?, ?, ?, ?, ?, ?, ?)';
@@ -44,7 +44,7 @@ function add_entry($title, $date, $timeH, $timeUnits, $learned, $resources, $tag
         $results = $db->prepare($sql);
         $results->bindValue(1, $title, PDO::PARAM_STR);
         $results->bindValue(2, $date, PDO::PARAM_STR);
-        $results->bindValue(3, $timeH, PDO::PARAM_INT);
+        $results->bindValue(3, $time, PDO::PARAM_INT);
         $results->bindValue(4, $timeUnits, PDO::PARAM_STR);
         $results->bindValue(5, $learned, PDO::PARAM_LOB);
         $results->bindValue(6, $resources, PDO::PARAM_LOB);
@@ -57,7 +57,7 @@ function add_entry($title, $date, $timeH, $timeUnits, $learned, $resources, $tag
     return true;
 }
 
-function edit_entry($title, $date, $timeH, $timeUnits, $learned, $resources, $tag, $id) {
+function edit_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag, $id) {
     include 'connection.php';
 
     $sql = 'UPDATE entries SET title = ?, date = ?, time_spent = ?, time_units = ?, learned = ?, resources = ?, tags = ? WHERE id = ?';
@@ -65,7 +65,7 @@ function edit_entry($title, $date, $timeH, $timeUnits, $learned, $resources, $ta
         $results = $db->prepare($sql);
         $results->bindValue(1, $title, PDO::PARAM_STR);
         $results->bindValue(2, $date, PDO::PARAM_STR);
-        $results->bindValue(3, $timeH, PDO::PARAM_INT);
+        $results->bindValue(3, $time, PDO::PARAM_INT);
         $results->bindValue(4, $timeUnits, PDO::PARAM_STR);
         $results->bindValue(5, $learned, PDO::PARAM_LOB);
         $results->bindValue(6, $resources, PDO::PARAM_LOB);
