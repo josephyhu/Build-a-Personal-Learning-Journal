@@ -36,10 +36,6 @@ include 'inc/header.php'; ?>
           <input id="time-spent" type="number" name="timeSpent" required>
           <input id="time-spent" name="timeSpentUnits" list="units" required>
           <datalist id="units">
-            <option value="Year(s)">
-            <option value="Month(s)">
-            <option value="Week(s)">
-            <option value="Day(s)">
             <option value="Hour(s)">
             <option value="Minute(s)">
           </datalist>
