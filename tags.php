@@ -7,7 +7,7 @@ $section = $tag;
 
 include 'inc/header.php'; ?>
   <section>
-    <h2><?php echo "#" . $tag; ?></h2>
+    <h2><?php echo "#" . trim($tag); ?></h2>
     <div class="container">
       <div class="entry-list">
         <?php
