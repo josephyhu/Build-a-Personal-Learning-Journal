@@ -45,7 +45,7 @@ include 'inc/header.php'; ?>
           <textarea id="what-i-learned" rows="5" name="whatILearned"><?php echo $item[0]['learned']; ?></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>
           <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"><?php echo $item[0]['resources']; ?></textarea>
-          <label for="tags">Tags (separate with commas)</label>
+          <label for="tags">Tags (separate with commas, don't add spaces between tags)</label>
           <textarea id="tags" rows="2" name="tags"><?php echo $item[0]['tags']; ?></textarea>
           <input type="hidden" name="id" value="<?php echo $id; ?>">
           <input type="submit" value="Edit Entry" class="button">

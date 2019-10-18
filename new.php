@@ -42,7 +42,7 @@ include 'inc/header.php'; ?>
           <textarea id="what-i-learned" rows="5" name="whatILearned" required></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>
           <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"></textarea>
-          <label for="tags">Tags (separate with commas)</label>
+          <label for="tags">Tags (separate with commas, don't add spaces between tags)</label>
           <textarea id="tags" rows="2" name="tags"></textarea>
           <input type="submit" value="Publish Entry" class="button">
           <a href="index.php" class="button button-secondary">Cancel</a>
