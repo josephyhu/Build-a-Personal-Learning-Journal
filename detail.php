@@ -38,7 +38,7 @@ include 'inc/header.php'; ?>
                 $tags = explode(trim(','), $item[0]['tags']);
                 echo "<ul>";
                 foreach ($tags as $tag) {
-                    echo "<li><a href='tags.php?tag=" . $tag . "'>#" . trim($tag) . "</a></li>";
+                    echo "<li><a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a></li>";
                 }
                 echo "</ul>";
               }

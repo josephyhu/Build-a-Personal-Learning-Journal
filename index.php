@@ -15,7 +15,7 @@ include 'inc/header.php'; ?>
             if (!empty($item['tags'])) {
                 $tags = explode(trim(','), $item['tags']);
                 foreach ($tags as $tag) {
-                    echo "<a href='tags.php?tag=" . $tag . "'>#" . trim($tag) . "</a> ";
+                    echo "<a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
                 }
             }
             echo "</article>";

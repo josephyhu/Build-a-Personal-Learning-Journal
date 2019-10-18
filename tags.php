@@ -15,6 +15,10 @@ include 'inc/header.php'; ?>
             echo "<article>";
             echo "<h2><a href='detail.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
             echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time><br>";
+            $tags = explode(trim(','), $item['tags']);
+            foreach ($tags as $tag) {
+                echo "<a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
+            }
             echo "</article>";
         }
         ?>

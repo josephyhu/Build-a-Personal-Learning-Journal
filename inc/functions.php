@@ -14,7 +14,7 @@ function get_entry_list_by_tag($tag) {
     include 'connection.php';
 
     try {
-        return $db->query("SELECT id, title, date FROM entries WHERE tags LIKE '%$tag%' ORDER BY date DESC");
+        return $db->query("SELECT id, title, date, tags FROM entries WHERE tags LIKE '%$tag%' ORDER BY date DESC");
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
         return array();
