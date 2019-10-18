@@ -37,11 +37,10 @@ include 'inc/header.php'; ?>
           <input id="date" type="date" name="date" value="<?php echo $item[0]['date']; ?>"><br>
           <label for="time-spent">Time Spent</label>
           <input id="time-spent" type="number" name="timeSpent" value="<?php echo $item[0]['time_spent']; ?>">
-          <input id="time-spent" name="timeSpentUnits" list="units" value="<?php echo $item[0]['time_units']; ?>">
-          <datalist id="units">
-            <option value="Hour(s)">
-            <option value="Minute(s)">
-          </datalist>
+          <select name="timeSpentUnits" required>
+            <option value="hour(s)" <?php if ($item[0]['time_units'] == 'hour(s)') { echo 'selected'; } ?>>hour(s)</option>
+            <option value="minute(s)" <?php if ($item[0]['time_units'] == 'minute(s)') { echo 'selected'; } ?>>minute(s)</option>
+          </select>
           <label for="what-i-learned">What I Learned</label>
           <textarea id="what-i-learned" rows="5" name="whatILearned"><?php echo $item[0]['learned']; ?></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>

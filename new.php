@@ -34,11 +34,10 @@ include 'inc/header.php'; ?>
           <input id="date" type="date" name="date" required><br>
           <label for="time-spent">Time Spent<span style="color:red">*</span></label>
           <input id="time-spent" type="number" name="timeSpent" required>
-          <input id="time-spent" name="timeSpentUnits" list="units" required>
-          <datalist id="units">
-            <option value="Hour(s)">
-            <option value="Minute(s)">
-          </datalist>
+          <select name="timeSpentUnits" required>
+            <option value="hour(s)">hour(s)</option>
+            <option value="minute(s)">minute(s)</option>
+          </select>
           <label for="what-i-learned">What I Learned<span style="color:red">*</span></label>
           <textarea id="what-i-learned" rows="5" name="whatILearned" required></textarea>
           <label for="resources-to-remember">Resources to Remember (separate with commas)</label>
