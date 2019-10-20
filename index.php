@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$section = 'Home';
+$page = 'Home';
 
 include 'inc/header.php'; ?>
     <section>

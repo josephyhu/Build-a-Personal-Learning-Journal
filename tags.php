@@ -3,7 +3,7 @@ require 'inc/functions.php';
 
 $tag = filter_input(INPUT_GET, 'tag', FILTER_SANITIZE_STRING);
 
-$section = $tag;
+$page = $tag;
 
 include 'inc/header.php'; ?>
     <section>

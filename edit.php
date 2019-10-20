@@ -5,7 +5,7 @@ $title = $date = $time = $learned = $resources = $tag = '';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $item = get_entry($id);
 
-$section = 'Edit Entry';
+$page = 'Edit Entry';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
