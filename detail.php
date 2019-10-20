@@ -42,8 +42,7 @@ include 'inc/header.php'; ?>
                 }
                 echo "</ul>";
               }
-              ?>
-            </ul>
+            ?>
           </div>
         </article>
       </div>
