@@ -33,7 +33,7 @@ function get_entry($id) {
         echo "Error: " . $e->getMessage() . "<br>";
         return false;
     }
-    return $results->fetchAll(PDO::FETCH_ASSOC);
+    return $results->fetch(PDO::FETCH_ASSOC);
 }
 
 function add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag) {

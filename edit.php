@@ -32,21 +32,21 @@ include 'inc/header.php'; ?>
           <h2>Edit Entry</h2>
           <form method="post">
             <label for="title">Title</label>
-            <input id="title" type="text" name="title" value="<?php echo $item[0]['title']; ?>"><br>
+            <input id="title" type="text" name="title" value="<?php echo $item['title']; ?>"><br>
             <label for="date">Date</label>
-            <input id="date" type="date" name="date" value="<?php echo $item[0]['date']; ?>"><br>
+            <input id="date" type="date" name="date" value="<?php echo $item['date']; ?>"><br>
             <label for="time-spent">Time Spent</label>
-            <input id="time-spent" type="number" name="timeSpent" value="<?php echo $item[0]['time_spent']; ?>">
+            <input id="time-spent" type="number" name="timeSpent" value="<?php echo $item['time_spent']; ?>">
             <select name="timeSpentUnits" required>
-              <option value="hour(s)" <?php if ($item[0]['time_units'] == 'hour(s)') { echo 'selected'; } ?>>hour(s)</option>
-              <option value="minute(s)" <?php if ($item[0]['time_units'] == 'minute(s)') { echo 'selected'; } ?>>minute(s)</option>
+              <option value="hour(s)" <?php if ($item['time_units'] == 'hour(s)') { echo 'selected'; } ?>>hour(s)</option>
+              <option value="minute(s)" <?php if ($item['time_units'] == 'minute(s)') { echo 'selected'; } ?>>minute(s)</option>
             </select>
             <label for="what-i-learned">What I Learned</label>
-            <textarea id="what-i-learned" rows="5" name="whatILearned"><?php echo $item[0]['learned']; ?></textarea>
+            <textarea id="what-i-learned" rows="5" name="whatILearned"><?php echo $item['learned']; ?></textarea>
             <label for="resources-to-remember">Resources to Remember (separate with commas)</label>
-            <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"><?php echo $item[0]['resources']; ?></textarea>
+            <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"><?php echo $item['resources']; ?></textarea>
             <label for="tags">Tags (separate with commas)</label>
-            <textarea id="tags" rows="2" name="tags"><?php echo $item[0]['tags']; ?></textarea>
+            <textarea id="tags" rows="2" name="tags"><?php echo $item['tags']; ?></textarea>
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input type="submit" value="Edit Entry" class="button">
             <a href="index.php" class="button button-secondary">Cancel</a>
