@@ -26,7 +26,7 @@ include 'inc/header.php'; ?>
               <?php
               if (!empty($item['resources'])) {
                   echo "<ul>";
-                  foreach (explode(trim(','), $item['resources']) as $resource) {
+                  foreach (explode(',', $item['resources']) as $resource) {
                       echo "<li>" . trim($resource) . "</li>";
                   }
                   echo "</ul>";
@@ -37,7 +37,7 @@ include 'inc/header.php'; ?>
               <h3>Tags:</h3>
               <?php
               if (!empty($item['tags'])) {
-                  $tags = explode(trim(','), $item['tags']);
+                  $tags = explode(',', $item['tags']);
                   echo "<ul>";
                   foreach ($tags as $tag) {
                       echo "<li><a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a></li>";
