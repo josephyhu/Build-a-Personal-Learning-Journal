@@ -20,7 +20,7 @@ include 'inc/header.php'; ?>
             <option value="title">Title</option>
             <option value="tags">Tag</option>
           </select>
-          <input type="search" name="search">
+          <input type="search" name="search" required>
         </form>
         <div class="entry-list">
           <?php
