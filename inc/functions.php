@@ -67,7 +67,7 @@ function count_entries($search, $searchby) {
         echo "Error: " . $e->getMessage() . "<br>";
         return false;
     }
-    return $results;
+    return $results->fetchColumn();
 }
 
 function add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag) {

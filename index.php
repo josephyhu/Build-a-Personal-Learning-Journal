@@ -10,7 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $entries = search_entries($search, $searchby);
     $count = count_entries($search, $searchby);
 
-    var_dump($count);
+    if ($count == 1) {
+        echo "Found " . $count . " entry.";
+    } else {
+        echo "Found " . $count . " entries.";
+    }
 }
 
 include 'inc/header.php'; ?>
