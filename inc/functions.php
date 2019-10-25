@@ -36,6 +36,21 @@ function get_entry($id) {
     return $results->fetch(PDO::FETCH_ASSOC);
 }
 
+function search_entries($search, $searchby) {
+    include 'connection.php';
+
+    try {
+        if ($searchby == 'title') {
+            return $db->query("SELECT id, title, date, tags FROM entries WHERE title LIKE '%$search%' ORDER BY date DESC");
+        } else {
+            return $db->query("SELECT id, title, date, tags FROM entries WHERE tags LIKE '%$search%' ORDER BY date DESC");
+        }
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return array();
+    }
+}
+
 function add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag) {
     include 'connection.php';
 
