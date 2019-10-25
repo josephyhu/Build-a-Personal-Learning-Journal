@@ -8,19 +8,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $searchby = trim(filter_input(INPUT_POST, 'searchby', FILTER_SANITIZE_STRING));
 
     $entries = search_entries($search, $searchby);
+
 }
 
 include 'inc/header.php'; ?>
     <section>
       <div class="container">
         <form method="post">
+          Search:
           <select name="searchby" required>
             <option value="title">Title</option>
             <option value="tags">Tag</option>
           </select>
-          Search Entry:
           <input type="search" name="search">
-          <input type="submit" value="Search Entries" class="button">
         </form>
         <div class="entry-list">
           <?php
