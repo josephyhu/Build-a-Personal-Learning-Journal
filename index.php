@@ -8,7 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $searchby = trim(filter_input(INPUT_POST, 'searchby', FILTER_SANITIZE_STRING));
 
     $entries = search_entries($search, $searchby);
+    $count = count_entries($search, $searchby);
 
+    var_dump($count);
 }
 
 include 'inc/header.php'; ?>

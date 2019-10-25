@@ -51,6 +51,25 @@ function search_entries($search, $searchby) {
     }
 }
 
+function count_entries($search, $searchby) {
+    include 'connection.php';
+
+    if ($searchby == 'title') {
+        $sql = "SELECT COUNT(*) FROM entries WHERE title LIKE '%$search%'";
+    } else {
+        $sql = "SELECT COUNT(*) FROM entries WHERE tags LIKE '%$search%'";
+    }
+
+    try {
+        $results = $db->prepare($sql);
+        $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return false;
+    }
+    return $results;
+}
+
 function add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag) {
     include 'connection.php';
 
