@@ -13,9 +13,10 @@ $offset = $limit * ($page - 1);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
     $search = trim(filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING));
-    
-    $entries = search_entries($search, null, $limit, $offset);
-    $count = count_entries($search);
+    $searchby = trim(filter_input(INPUT_GET, 'searchby', FILTER_SANITIZE_STRING));
+
+    $entries = search_entries($search, $searchby, $limit, $offset);
+    $count = count_entries($search, $searchby);
 
     if ($count == 1) {
         echo "Found " . $count . " entry.";
@@ -29,15 +30,19 @@ include 'inc/header.php'; ?>
       <div class="container">
         <form method="get">
           Search:
+          <select name="searchby" required>
+            <option value="title">Title</option>
+            <option value="tag">Tag</option>
+          </select>
           <input type="search" name="search" required>
         </form>
         <br>
         <?php
         if (!empty($entries) && $page > 1) {
-            echo "<a href='index.php?search=" . $search . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
+            echo "<a href='index.php?searchby=" . $searchby . "&search=" . $search . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
         }
         if (count($entries) >= $limit) {
-            echo "<a href='index.php?search=" . $search . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
+            echo "<a href='index.php?searchby=" . $searchby . "&search=" . $search . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
         }
         if (empty($entries) && $page > 1) {
             echo "<a href='index.php?p=" . ($page-1). "' class='button'>Previous Page</a>";
