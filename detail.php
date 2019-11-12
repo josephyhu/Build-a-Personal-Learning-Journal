@@ -30,8 +30,8 @@ include 'inc/header.php'; ?>
               if (!empty($item['resources'])) {
                   echo "<ul>";
                   foreach (explode(',', $item['resources']) as $resource) {
-                      if (strpos(trim($resource), 'http') === 0) {
-                          echo "<li><a href='" . trim($resource) . "' target='_blank'>" . trim($resource) . "</a></li>";
+                      if (in_array(strpos(trim($resource), '://'), range(4, 5))) {
+                          echo "<li><a href='" . strtolower(trim($resource)) . "' target='_blank'>" . strtolower(trim($resource)) . "</a></li>";
                       } else {
                           echo "<li>" . trim($resource) . "</li>";
                       }

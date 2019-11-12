@@ -43,7 +43,7 @@ include 'inc/header.php'; ?>
             </select>
             <label for="what-i-learned">What I Learned</label>
             <textarea id="what-i-learned" rows="5" name="whatILearned"><?php echo $item['learned']; ?></textarea>
-            <label for="resources-to-remember">Resources to Remember (separate with commas, start links with 'http' or 'https')</label>
+            <label for="resources-to-remember">Resources to Remember (separate with commas, start links with 'http://' or 'https://')</label>
             <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"><?php echo $item['resources']; ?></textarea>
             <label for="tags">Tags (separate with commas)</label>
             <textarea id="tags" rows="2" name="tags"><?php echo $item['tags']; ?></textarea>

@@ -40,7 +40,7 @@ include 'inc/header.php'; ?>
             </select>
             <label for="what-i-learned">What I Learned<span style="color:red">*</span></label>
             <textarea id="what-i-learned" rows="5" name="whatILearned" required></textarea>
-            <label for="resources-to-remember">Resources to Remember (separate with commas, start links with 'http' or 'https')</label>
+            <label for="resources-to-remember">Resources to Remember (separate with commas, start links with 'http://' or 'https://')</label>
             <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"></textarea>
             <label for="tags">Tags (separate with commas)</label>
             <textarea id="tags" rows="2" name="tags"></textarea>
