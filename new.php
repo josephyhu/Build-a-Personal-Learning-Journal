@@ -3,7 +3,7 @@ require 'inc/functions.php';
 
 $title = $date = $time = $learned = $resources = $tag = '';
 
-$page = 'New Entry';
+$pageTitle = 'New Entry';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));

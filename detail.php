@@ -4,7 +4,7 @@ require 'inc/functions.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $item = get_entry($id);
 
-$page = $item['title'];
+$pageTitle = $item['title'];
 
 include 'inc/header.php'; ?>
     <section>

@@ -1,14 +1,21 @@
 <?php
 require 'inc/functions.php';
 
-$page = 'Home';
+$pageTitle = 'Home';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $search = trim(filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING));
-    $searchby = trim(filter_input(INPUT_POST, 'searchby', FILTER_SANITIZE_STRING));
+$page = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_NUMBER_INT);
+if (empty($page)) {
+    $page = 1;
+}
 
-    $entries = search_entries($search, $searchby);
-    $count = count_entries($search, $searchby);
+$limit = 25;
+$offset = $limit * ($page - 1);
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
+    $search = trim(filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING));
+    
+    $entries = search_entries($search, null, $limit, $offset);
+    $count = count_entries($search);
 
     if ($count == 1) {
         echo "Found " . $count . " entry.";
@@ -20,14 +27,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 include 'inc/header.php'; ?>
     <section>
       <div class="container">
-        <form method="post">
+        <form method="get">
           Search:
-          <select name="searchby" required>
-            <option value="title">Title</option>
-            <option value="tags">Tag</option>
-          </select>
           <input type="search" name="search" required>
         </form>
+        <br>
+        <?php
+        if (!empty($entries) && $page > 1) {
+            echo "<a href='index.php?search=" . $search . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
+        }
+        if (count($entries) >= $limit) {
+            echo "<a href='index.php?search=" . $search . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
+        }
+        if (empty($entries) && $page > 1) {
+            echo "<a href='index.php?p=" . ($page-1). "' class='button'>Previous Page</a>";
+        }
+        if (empty($entries) && count(get_entry_list($limit, $offset)) >= $limit) {
+            echo "<a href='index.php?p=" . ($page+1). "' class='button'>Next Page</a>";
+        }
+        ?>
         <div class="entry-list">
           <?php
           if (isset($entries)) {
@@ -44,7 +62,7 @@ include 'inc/header.php'; ?>
                   echo "</article>";
               }
           } else {
-              foreach (get_entry_list() as $item) {
+              foreach (get_entry_list($limit, $offset) as $item) {
                   echo "<article>";
                   echo "<h2><a href='detail.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
                   echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time><br>";
