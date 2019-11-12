@@ -19,7 +19,10 @@ include 'inc/header.php'; ?>
             </div>
             <div class='entry'>
               <h3>What I Learned:</h3>
-              <p><?php echo $item['learned']; ?></p>
+              <?php foreach (explode("\n", $item['learned']) as $learned) {
+                  echo "<p>" . $learned . "</p>";
+              }
+              ?>
             </div>
             <div class='entry'>
               <h3>Resources to Remember:</h3>
@@ -27,7 +30,11 @@ include 'inc/header.php'; ?>
               if (!empty($item['resources'])) {
                   echo "<ul>";
                   foreach (explode(',', $item['resources']) as $resource) {
-                      echo "<li>" . trim($resource) . "</li>";
+                      if (strpos(trim($resource), 'http') === 0) {
+                          echo "<li><a href='" . trim($resource) . "'>" . trim($resource) . "</a></li>";
+                      } else {
+                          echo "<li>" . trim($resource) . "</li>";
+                      }
                   }
                   echo "</ul>";
               }
