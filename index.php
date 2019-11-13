@@ -8,28 +8,8 @@ if (empty($page)) {
     $page = 1;
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $num_entries = $_POST['num_entries'];
-    if ($num_entries == '10') {
-        $limit = 10;
-        $offset = $limit * ($page - 1);
-    } elseif ($num_entries == '25') {
-        $limit = 25;
-        $offset = $limit * ($page - 1);
-    } elseif ($num_entries == '50') {
-        $limit = 50;
-        $offset = $limit * ($page - 1);
-    } elseif ($num_entries == '100') {
-        $limit = 100;
-        $offset = $limit * ($page - 1);
-    } else {
-        $limit = -1;
-        $offset = 0;
-    }
-} else {
-    $limit = -1;
-    $offset = 0;
-}
+$limit = 25;
+$offset = $limit * ($page - 1);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
     $search = trim(filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING));
@@ -61,13 +41,13 @@ include 'inc/header.php'; ?>
         if (!empty($entries) && $page > 1) {
             echo "<a href='index.php?searchby=" . $searchby . "&search=" . $search . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
         }
-        if (count($entries) >= $limit && $limit != -1) {
+        if (count($entries) >= $limit) {
             echo "<a href='index.php?searchby=" . $searchby . "&search=" . $search . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
         }
         if (empty($entries) && $page > 1) {
             echo "<a href='index.php?p=" . ($page-1). "' class='button'>Previous Page</a>";
         }
-        if (empty($entries) && count(get_entry_list($limit, $offset)) >= $limit  && $limit != -1) {
+        if (empty($entries) && count(get_entry_list($limit, $offset)) >= $limit) {
             echo "<a href='index.php?p=" . ($page+1). "' class='button'>Next Page</a>";
         }
         ?>
@@ -102,18 +82,6 @@ include 'inc/header.php'; ?>
           }
           ?>
         </div>
-        <form method="post">
-          Show
-          <select name="num_entries">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-            <option value="all">All</option>
-          </select>
-          entries.
-          <input type="submit" class="button" value="Submit">
-        </form>
       </div>
     </section>
 <?php include 'inc/footer.php'; ?>
