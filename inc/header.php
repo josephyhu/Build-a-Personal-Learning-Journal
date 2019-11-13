@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?php echo "MyJournal | $page"; ?></title>
+    <title><?php echo "MyJournal | $pageTitle"; ?></title>
     <link href="https://fonts.googleapis.com/css?family=Cousine:400" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,9 +12,9 @@
   </head>
   <body>
     <header>
-      <div class="container">
+      <div class="container" id="top">
         <div class="site-header">
-          <a class="logo" href="index.php"><i class="material-icons">library_books</i></a>
+          <a class="logo" href="index.php" title="Home"><i class="material-icons">library_books</i></a>
           <a class="button icon-right" href="new.php"><span>New Entry</span> <i class="material-icons">add</i></a>
         </div>
       </div>

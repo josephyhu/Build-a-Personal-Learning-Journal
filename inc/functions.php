@@ -1,24 +1,34 @@
 <?php
-function get_entry_list() {
+function get_entry_list($limit, $offset) {
     include 'connection.php';
 
+    $sql = "SELECT id, title, date, tags FROM entries ORDER BY date DESC LIMIT ? OFFSET ?";
     try {
-        return $db->query('SELECT id, title, date, tags FROM entries ORDER BY date DESC');
+        $results = $db->prepare($sql);
+        $results->bindValue(1, $limit, PDO::PARAM_INT);
+        $results->bindValue(2, $offset, PDO::PARAM_INT);
+        $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
         return array();
     }
+    return $results->fetchAll();
 }
 
-function get_entry_list_by_tag($tag) {
+function get_entry_list_by_tag($tag, $limit, $offset) {
     include 'connection.php';
 
+    $sql = "SELECT id, title, date, tags FROM entries WHERE tags LIKE '%$tag%' ORDER BY date DESC LIMIT ? OFFSET ?";
     try {
-        return $db->query("SELECT id, title, date, tags FROM entries WHERE tags LIKE '%$tag%' ORDER BY date DESC");
+        $results = $db->prepare($sql);
+        $results->bindValue(1, $limit, PDO::PARAM_INT);
+        $results->bindValue(2, $offset, PDO::PARAM_INT);
+        $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
         return array();
     }
+    return $results->fetchAll();
 }
 
 function get_entry($id) {
@@ -33,22 +43,27 @@ function get_entry($id) {
         echo "Error: " . $e->getMessage() . "<br>";
         return false;
     }
-    return $results->fetch(PDO::FETCH_ASSOC);
+    return $results->fetch();
 }
 
-function search_entries($search, $searchby) {
+function search_entries($search, $searchby, $limit, $offset) {
     include 'connection.php';
 
+    if ($searchby == 'title') {
+        $sql = "SELECT id, title, date, tags FROM entries WHERE title LIKE '%$search%' ORDER BY date DESC LIMIT ? OFFSET ?";
+    } elseif ($searchby == 'tag') {
+        $sql = "SELECT id, title, date, tags FROM entries WHERE tags LIKE '%$search%' ORDER BY date DESC LIMIT ? OFFSET ?";
+    }
     try {
-        if ($searchby == 'title') {
-            return $db->query("SELECT id, title, date, tags FROM entries WHERE title LIKE '%$search%' ORDER BY date DESC");
-        } else {
-            return $db->query("SELECT id, title, date, tags FROM entries WHERE tags LIKE '%$search%' ORDER BY date DESC");
-        }
+        $results = $db->prepare($sql);
+        $results->bindValue(1, $limit, PDO::PARAM_INT);
+        $results->bindValue(2, $offset, PDO::PARAM_INT);
+        $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
         return array();
     }
+    return $results->fetchAll();
 }
 
 function count_entries($search, $searchby) {
@@ -56,10 +71,9 @@ function count_entries($search, $searchby) {
 
     if ($searchby == 'title') {
         $sql = "SELECT COUNT(*) FROM entries WHERE title LIKE '%$search%'";
-    } else {
+    } elseif ($searchby == 'tag') {
         $sql = "SELECT COUNT(*) FROM entries WHERE tags LIKE '%$search%'";
     }
-
     try {
         $results = $db->prepare($sql);
         $results->execute();
