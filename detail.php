@@ -58,7 +58,15 @@ include 'inc/header.php'; ?>
       </div>
       <div class="edit">
         <p><a href="edit.php?id=<?php echo $id; ?>">Edit Entry</a></p>
-        <p><a href="delete.php?id=<?php echo $id; ?>" onclick="alert('Confirm Delete')">Delete Entry</a></p>
+        <p><input type="submit" class="button" value="Delete Entry" onclick="confirmDelete()"></p>
       </div>
+      <script>
+      function confirmDelete() {
+        var r = confirm("Confirm Delete")
+        if (r == true) {
+          window.location.replace("delete.php?id=<?php echo $id; ?>");
+        }
+      }
+      </script>
     </section>
 <?php include 'inc/footer.php'; ?>
