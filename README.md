@@ -19,7 +19,7 @@
 ![Middle Page](/img/home-p2.png)
 ![Last Page](/img/home-p3.png)
 
-### Details Page
+### Detail Page
 ![Top](/img/detail-top.png)
 ![Bottom](/img/detail-bottom.png)
 ![Delete Confirmation Box](/img/delete-confirmation-box.png)
