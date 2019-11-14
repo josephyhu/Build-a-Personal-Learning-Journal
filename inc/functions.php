@@ -49,9 +49,8 @@ function get_entry($id) {
 function search_entries($search, $limit, $offset) {
     include 'connection.php';
 
-    if ($searchby == 'title') {
-        $sql = "SELECT id, title, date, tags FROM entries WHERE title LIKE '%$search%' ORDER BY date DESC LIMIT ? OFFSET ?";
-    }
+
+    $sql = "SELECT id, title, date, tags FROM entries WHERE title LIKE '%$search%' ORDER BY date DESC LIMIT ? OFFSET ?";
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $limit, PDO::PARAM_INT);
@@ -67,8 +66,7 @@ function search_entries($search, $limit, $offset) {
 function count_entries($search) {
     include 'connection.php';
 
-    if ($searchby == 'title') {
-        $sql = "SELECT COUNT(*) FROM entries WHERE title LIKE '%$search%'";
+    $sql = "SELECT COUNT(*) FROM entries WHERE title LIKE '%$search%'";
     try {
         $results = $db->prepare($sql);
         $results->execute();
