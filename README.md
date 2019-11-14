@@ -14,9 +14,9 @@
 * Added two links on either side of the copyright in the footer which sends the user to the top of the page.
 
 ## Things to Improve
-* Allow the user to set the current limit of entries per page from the following choices: 10, 25, 50, 100, and all.
-* Allow the user to change the background from light to dark and vice versa.
-* Prevent the Next Page button from showing on the last page if there are exactly 25 entries on that page. No problems if there are less than or more than 25 entries on the page.
+1. Allow the user to set the current limit of entries per page from the following choices: 10, 25, 50, 100, and all.
+1. Allow the user to change the background from light to dark and vice versa.
+1. Prevent the Next Page button from showing on the last page if there are exactly 25 (or whatever limit the user has set if (1) was implemented) entries on that page. No problems if there are less than or more than 25 (or whatever limit the user has set if (1) was implemented) entries on the page.
 
 ## Screenshots
 ### Home Page:
