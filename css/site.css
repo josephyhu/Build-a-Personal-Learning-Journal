@@ -9,7 +9,7 @@ body {
 	font-family: 'Cousine', serif;
 	font-weight: 400;
 	color: #FFF;
-	background-color: #000;
+	background-color: #191970;
 }
 .container {
 	margin: 0 auto;
@@ -36,6 +36,7 @@ footer {
 }
 a {
   text-decoration: none;
+	color: #808080;
 }
 a:hover {
   opacity: .5;
@@ -126,7 +127,6 @@ p {
 }
 p a {
 	padding: 0;
-	color: #678f89;
 }
 p a:visited {
 	color: #551A8B;
@@ -137,7 +137,6 @@ ul li {
 }
 ul li a {
 	line-height: 1.8em;
-	color: #678f89;
 }
 ul li a:visited {
 	color: #551A8B;
