@@ -46,13 +46,11 @@ function get_entry($id) {
     return $results->fetch();
 }
 
-function search_entries($search, $searchby, $limit, $offset) {
+function search_entries($search, $limit, $offset) {
     include 'connection.php';
 
     if ($searchby == 'title') {
         $sql = "SELECT id, title, date, tags FROM entries WHERE title LIKE '%$search%' ORDER BY date DESC LIMIT ? OFFSET ?";
-    } elseif ($searchby == 'tag') {
-        $sql = "SELECT id, title, date, tags FROM entries WHERE tags LIKE '%$search%' ORDER BY date DESC LIMIT ? OFFSET ?";
     }
     try {
         $results = $db->prepare($sql);
@@ -66,14 +64,11 @@ function search_entries($search, $searchby, $limit, $offset) {
     return $results->fetchAll();
 }
 
-function count_entries($search, $searchby) {
+function count_entries($search) {
     include 'connection.php';
 
     if ($searchby == 'title') {
         $sql = "SELECT COUNT(*) FROM entries WHERE title LIKE '%$search%'";
-    } elseif ($searchby == 'tag') {
-        $sql = "SELECT COUNT(*) FROM entries WHERE tags LIKE '%$search%'";
-    }
     try {
         $results = $db->prepare($sql);
         $results->execute();
