@@ -1,7 +1,7 @@
 # Build a Personal Learning Journal
 3rd Treehouse PHP Techdegree project.
 
-## Recent Changes:
+## Recent Changes
 * Changed the background color from white to black.
 * Changed the background color again from black to midnight blue.
 * Added the title attribute of 'Home' to the home page button.
@@ -13,29 +13,29 @@
 * Added delete all entries button in the index.php file with a confirmation box on click.
 * Added two links on either side of the copyright in the footer which sends the user to the top of the page.
 
-## Screenshots:
-### Home Page
+## Screenshots
+### Home Page:
 ![First Page](/img/home-p1.png)
 ![Middle Page](/img/home-p2.png)
 ![Last Page](/img/home-p3.png)
 
-### Detail Page
+### Detail Page:
 ![Top](/img/detail-top.png)
 ![Bottom](/img/detail-bottom.png)
 ![Delete Confirmation Box](/img/delete-confirmation-box.png)
 
-### New Entry Page
+### New Entry Page:
 ![Top](/img/new-entry-top.png)
 ![Middle](/img/new-entry-middle.png)
 
-### Edit Entry Page
+### Edit Entry Page:
 ![Top](/img/edit-entry-top.png)
 ![Middle](/img/edit-entry-middle.png)
 
-### Tag Page
+### Tag Page:
 ![Top](/img/tag-top.png)
 ![Bottom](/img/tag-bottom.png)
 
-### Delete All Entries
+### Delete All Entries:
 ![Delete All](/img/delete-all.png)
 ![Entries Deleted](/img/entries-deleted.png)
