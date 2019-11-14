@@ -25,14 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
 }
 
 include 'inc/header.php'; ?>
-      <section>
-        <div class="container">
-          <div class="search">
-          <form method="get">
-            Search:
-            <input type="search" name="search" required>
-          </form>
-          <br>
+    <section>
+      <div class="container">
+        <form method="get">
+          Search:
+          <input type="search" name="search" required>
+        </form>
+        <br>
   <?php
   if (!empty($entries) && $page > 1) {
     echo "<a href='index.php?search=" . $search . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
@@ -47,7 +46,6 @@ include 'inc/header.php'; ?>
     echo "<a href='index.php?p=" . ($page+1). "' class='button'>Next Page</a>";
   }
   ?>
-</div>
         <div class="entry-list">
           <?php
           if (isset($entries)) {
