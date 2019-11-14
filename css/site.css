@@ -10,9 +10,19 @@ body {
 	font-family: 'Cousine', serif;
 	font-weight: 400;
 }
+header {
+  position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	background-color: #0000FF;
+}
 .container {
 	margin: 0 auto;
 	padding: 0 25px;
+}
+.search {
+	margin-top: 100px;
 }
 header .site-header {
 	margin: 0 auto;

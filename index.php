@@ -26,31 +26,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
 }
 
 include 'inc/header.php'; ?>
-    <section>
-      <div class="container">
-        <form method="get">
-          Search:
-          <select name="searchby" required>
-            <option value="title">Title</option>
-            <option value="tag">Tag</option>
-          </select>
-          <input type="search" name="search" required>
-        </form>
-        <br>
-        <?php
-        if (!empty($entries) && $page > 1) {
-            echo "<a href='index.php?searchby=" . $searchby . "&search=" . $search . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
-        }
-        if (count($entries) >= $limit) {
-            echo "<a href='index.php?searchby=" . $searchby . "&search=" . $search . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
-        }
-        if (empty($entries) && $page > 1) {
-            echo "<a href='index.php?p=" . ($page-1). "' class='button'>Previous Page</a>";
-        }
-        if (empty($entries) && count(get_entry_list($limit, $offset)) >= $limit) {
-            echo "<a href='index.php?p=" . ($page+1). "' class='button'>Next Page</a>";
-        }
-        ?>
+      <section>
+        <div class="container">
+          <div class="search">
+          <form method="get">
+            Search:
+            <select name="searchby" required>
+              <option value="title">Title</option>
+              <option value="tag">Tag</option>
+            </select>
+            <input type="search" name="search" required>
+          </form>
+          <br>
+  <?php
+  if (!empty($entries) && $page > 1) {
+    echo "<a href='index.php?searchby=" . $searchby . "&search=" . $search . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
+  }
+  if (count($entries) >= $limit) {
+    echo "<a href='index.php?searchby=" . $searchby . "&search=" . $search . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
+  }
+  if (empty($entries) && $page > 1) {
+    echo "<a href='index.php?p=" . ($page-1). "' class='button'>Previous Page</a>";
+  }
+  if (empty($entries) && count(get_entry_list($limit, $offset)) >= $limit) {
+    echo "<a href='index.php?p=" . ($page+1). "' class='button'>Next Page</a>";
+  }
+  ?>
+</div>
         <div class="entry-list">
           <?php
           if (isset($entries)) {
