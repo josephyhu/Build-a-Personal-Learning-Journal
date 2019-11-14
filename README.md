@@ -24,6 +24,7 @@
 ![First Page](/img/home-p1.png)
 ![Middle Page](/img/home-p2.png)
 ![Last Page](/img/home-p3.png)
+![Search](/img/search.png)
 
 ### Detail Page:
 ![Top](/img/detail-top.png)
