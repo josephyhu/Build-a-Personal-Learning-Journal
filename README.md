@@ -7,7 +7,7 @@
 * Set the opacity to .5 for all links and buttons on hover.
 * Added a search field to the index.php page.
 * Added pagination to the index.php and the tags.php pages with current limit of 25 entries per page.
-* Added a select field to the new.php and the edit.php pages which allows the user to select either hour(s) or minute(s) to the time spent.
+* Added a select field to the new.php and the edit.php pages which allows the user to select either hour(s) or minute(s) for the time spent.
 * Changed the delete link to a button with a confirmation box on click.
 * Added two links on either side of the copyright in the footer which sends the user to the top of the page.
 
