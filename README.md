@@ -14,7 +14,7 @@
 ### Home Page
 ![Page 1](/img/home-p1.png)
 ![Page 2](/img/home-p2.png)
-![Page_3](/img/home-p3.png)
+![Page 3](/img/home-p3.png)
 
 ### Details Page
 ![Top](/img/detail-top.png)
