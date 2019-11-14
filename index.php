@@ -11,6 +11,10 @@ if (empty($page)) {
 $limit = 25;
 $offset = $limit * ($page - 1);
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
     $search = trim(filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING));
 
@@ -45,6 +49,9 @@ include 'inc/header.php'; ?>
   if (empty($entries) && count(get_entry_list($limit, $offset)) >= $limit) {
     echo "<a href='index.php?p=" . ($page+1). "' class='button'>Next Page</a>";
   }
+  if (!empty(get_entry_list($limit, $offset))) {
+    echo "<input type='submit' class='button' value='Delete All Entries' onclick='confirmDeleteAll()'>";
+  }
   ?>
         <div class="entry-list">
           <?php
@@ -78,5 +85,13 @@ include 'inc/header.php'; ?>
           ?>
         </div>
       </div>
+      <script>
+      function confirmDeleteAll() {
+        var r = confirm("Confirm delete all.")
+        if (r == true) {
+          window.location.replace("delete_all.php");
+        }
+      }
+      </script>
     </section>
 <?php include 'inc/footer.php'; ?>

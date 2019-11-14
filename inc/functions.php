@@ -134,3 +134,17 @@ function delete_entry($id) {
     }
     return true;
 }
+
+function delete_all_entries() {
+    include 'connection.php';
+
+    $sql = 'DELETE FROM entries';
+    try {
+        $results = $db->prepare($sql);
+        $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return false;
+    }
+    return true;
+}

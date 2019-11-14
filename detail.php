@@ -62,7 +62,7 @@ include 'inc/header.php'; ?>
       </div>
       <script>
       function confirmDelete() {
-        var r = confirm("Confirm Delete")
+        var r = confirm("Confirm delete.")
         if (r == true) {
           window.location.replace("delete.php?id=<?php echo $id; ?>");
         }
