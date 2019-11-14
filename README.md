@@ -8,7 +8,8 @@
 * Added a search field to the index.php page.
 * Added pagination to the index.php and the tags.php pages with current limit of 25 entries per page.
 * Added a select field to the new.php and the edit.php pages which allows the user to select either hour(s) or minute(s) for the time spent.
-* Changed the delete link to a button with a confirmation box on click.
+* Changed the delete link in the detail.php file to a button with a confirmation box on click.
+* Added a delete all entries button in the index.php with a confirmation box on click.
 * Added two links on either side of the copyright in the footer which sends the user to the top of the page.
 
 ## Screenshots:
@@ -33,3 +34,6 @@
 ### Tag Page
 ![Top](/img/tag-top.png)
 ![Bottom](/img/tag-bottom.png)
+
+### Delete All Entries
+![Delete All](/img/delete-all.png)
