@@ -4,7 +4,7 @@
 ## Recent Changes
 * Changed the background color from white to black.
 * Changed the background color again from black to midnight blue.
-* Added the title attribute of 'Home' to the home page button.
+* Added the title attribute of 'Home' to the home page button (the button on the top left).
 * Set the opacity to .5 for all links and buttons on hover.
 * Added search field to the index.php page.
 * Added pagination to the index.php and the tags.php pages with the current limit of 25 entries per page.
