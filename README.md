@@ -6,11 +6,11 @@
 * Changed the background color again from black to midnight blue.
 * Added the title attribute of 'Home' to the home page button (the button on the top left).
 * Set the opacity to .5 for all links and buttons on hover.
-* Added search field to the index.php page.
-* Added pagination to the index.php and the tags.php pages with the current limit of 25 entries per page.
-* Added a select field to the new.php and the edit.php pages which allows the user to select either hour(s) or minute(s) for the time spent.
-* Changed the delete link in the detail.php file to a button with a confirmation box on click.
-* Added delete all entries button to the index.php file with a confirmation box on click.
+* Added search field to the home page.
+* Added pagination to the home and the tags pages with the current limit of 25 entries per page.
+* Added a select field to the new entry and the edit entry pages which allows the user to select either hour(s) or minute(s) for the time spent.
+* Changed the delete link in the detail page to a button with a confirmation box on click.
+* Added delete all entries button to the home page with a confirmation box on click.
 * Added two links on either side of the copyright in the footer which sends the user to the top of the page.
 
 ## Things to Improve
