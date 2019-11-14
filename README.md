@@ -3,6 +3,7 @@
 
 ## Recent Changes:
 * Changed the background color from white to black.
+* Changed the background color again from black to midnight blue.
 * Added the title attribute of 'Home' to the home page button.
 * Set the opacity to .5 for all links and buttons on hover.
 * Added a search field to the index.php page.
