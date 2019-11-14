@@ -12,9 +12,9 @@
 
 ## Screenshots:
 ### Home Page
-![Page 1](/img/home-p1.png)
-![Page 2](/img/home-p2.png)
-![Page 3](/img/home-p3.png)
+![First Page](/img/home-p1.png)
+![Middle Page](/img/home-p2.png)
+![Last Page](/img/home-p3.png)
 
 ### Details Page
 ![Top](/img/detail-top.png)
@@ -28,3 +28,7 @@
 ### Edit Entry Page
 ![Top](/img/edit-entry-top.png)
 ![Middle](/img/edit-entry-middle.png)
+
+### Tag Page
+![Top](/img/tag-top.png)
+![Bottom](/img/tag-bottom.png)
