@@ -19,17 +19,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (edit_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag, $id)) {
         echo 'Successfully edited entry.';
-        header('refresh: 1; url = detail.php?id=' . $id . '');
+        header('refresh: 1; url = detail_l.php?id=' . $id . '');
     } else {
         echo 'Unable to edit entry. Try again.';
     }
 }
 
-include 'inc/header.php';
+include 'inc/header_l.php';
 ?>
     <section>
       <div class="container">
-        <a href="edit_l.php?id=<?php echo $id; ?>" class="button">Light</a>
+        <a href="edit.php?id=<?php echo $id; ?>" class="button">Dark</a>
         <div class="edit-entry">
           <h2>Edit Entry</h2>
           <form method="post">
@@ -51,7 +51,7 @@ include 'inc/header.php';
             <textarea id="tags" rows="2" name="tags"><?php echo $item['tags']; ?></textarea>
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input type="submit" value="Edit Entry" class="button">
-            <a href="index.php" class="button button-secondary">Cancel</a>
+            <a href="index_l.php" class="button button-secondary">Cancel</a>
           </form>
         </div>
       </div>

@@ -10,16 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 if (delete_entry($id)) {
     echo 'Successfully deleted entry.';
-    header('refresh: 1; url = index.php');
+    header('refresh: 1; url = index_l.php');
 } else {
     echo 'Unable to delete entry. Try again.';
-    header('refresh: 1; url = detail.php?id="' . $id . '"');
+    header('refresh: 1; url = detail_l.php?id="' . $id . '"');
 }
-include 'inc/header.php';
+include 'inc/header_l.php';
 ?>
     <section>
       <div class="container">
-        <a href="delete_l.php" class="button">Light</a>
+        <a href="delete.php" class="button">Dark</a>
       </div>
     </section>
 <?php

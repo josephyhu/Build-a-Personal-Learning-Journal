@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
     }
 }
 
-include 'inc/header.php';
+include 'inc/header_l.php';
 ?>
     <section>
       <div class="container">
@@ -39,33 +39,33 @@ include 'inc/header.php';
         <br>
   <?php
   if (!empty($entries) && $page > 1) {
-    echo "<a href='index.php?search=" . $search . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
+    echo "<a href='index_l.php?search=" . $search . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
   }
   if (count($entries) >= $limit) {
-    echo "<a href='index.php?search=" . $search . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
+    echo "<a href='index_l.php?search=" . $search . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
   }
   if (empty($entries) && $page > 1) {
-    echo "<a href='index.php?p=" . ($page-1). "' class='button'>Previous Page</a>";
+    echo "<a href='index_l.php?p=" . ($page-1). "' class='button'>Previous Page</a>";
   }
   if (empty($entries) && count(get_entry_list($limit, $offset)) >= $limit) {
-    echo "<a href='index.php?p=" . ($page+1). "' class='button'>Next Page</a>";
+    echo "<a href='index_l.php?p=" . ($page+1). "' class='button'>Next Page</a>";
   }
   if (!empty(get_entry_list($limit, $offset))) {
     echo "<input type='submit' class='button' value='Delete All Entries' onclick='confirmDeleteAll()'>";
   }
   ?>
-        <a href="index_l.php" class="button">Light</a>
+        <a href="index.php" class="button">Dark</a>
         <div class="entry-list">
           <?php
           if (isset($entries)) {
               foreach ($entries as $entry) {
                   echo "<article>";
-                  echo "<h2><a href='detail.php?id=" . $entry['id'] . "'>" . $entry['title'] . "</a></h2>";
+                  echo "<h2><a href='detail_l.php?id=" . $entry['id'] . "'>" . $entry['title'] . "</a></h2>";
                   echo "<time datetime='" . $entry['date'] . "'>" . date("F d, Y", strtotime($entry['date'])) . "</time><br>";
                   if (!empty($entry['tags'])) {
                       $tags = explode(',', $entry['tags']);
                       foreach ($tags as $tag) {
-                          echo "<a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
+                          echo "<a href='tags_l.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
                       }
                   }
                   echo "</article>";
@@ -73,12 +73,12 @@ include 'inc/header.php';
           } else {
               foreach (get_entry_list($limit, $offset) as $item) {
                   echo "<article>";
-                  echo "<h2><a href='detail.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
+                  echo "<h2><a href='detail_l.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
                   echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time><br>";
                   if (!empty($item['tags'])) {
                       $tags = explode(',', $item['tags']);
                       foreach ($tags as $tag) {
-                          echo "<a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
+                          echo "<a href='tags_l.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
                       }
                   }
                   echo "</article>";
@@ -91,7 +91,7 @@ include 'inc/header.php';
       function confirmDeleteAll() {
         var r = confirm("Confirm delete all.")
         if (r == true) {
-          window.location.replace("delete_all.php");
+          window.location.replace("delete_all_l.php");
         }
       }
       </script>

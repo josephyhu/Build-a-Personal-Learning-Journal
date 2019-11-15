@@ -16,17 +16,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag)) {
         echo 'Successfully added entry.';
-        header('refresh: 1; url = index.php');
+        header('refresh: 1; url = index_l.php');
     } else {
         echo 'Unable to add entry. Try again.';
     }
 }
 
-include 'inc/header.php';
+include 'inc/header_l.php';
 ?>
     <section>
       <div class="container">
-        <a href="new_l.php" class="button">Light</a>
+        <a href="new.php" class="button">Dark</a>
         <div class="new-entry">
           <h2>New Entry</h2>
           <form method="post">
@@ -47,7 +47,7 @@ include 'inc/header.php';
             <label for="tags">Tags (separate with commas)</label>
             <textarea id="tags" rows="2" name="tags"></textarea>
             <input type="submit" value="Publish Entry" class="button">
-            <a href="index.php" class="button button-secondary">Cancel</a>
+            <a href="index_l.php" class="button button-secondary">Cancel</a>
           </form>
         </div>
       </div>

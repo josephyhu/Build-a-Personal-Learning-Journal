@@ -6,11 +6,11 @@ $item = get_entry($id);
 
 $pageTitle = $item['title'];
 
-include 'inc/header.php';
+include 'inc/header_l.php';
 ?>
     <section>
       <div class="container">
-        <a href="detail_l.php?id=<?php echo $id; ?>" class="button">Light</a>
+        <a href="detail.php?id=<?php echo $id; ?>" class="button">Dark</a>
         <div class="entry-list single">
           <article>
             <h1><?php echo $item['title']; ?></h1>
@@ -49,7 +49,7 @@ include 'inc/header.php';
                   $tags = explode(',', $item['tags']);
                   echo "<ul>";
                   foreach ($tags as $tag) {
-                      echo "<li><a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a></li>";
+                      echo "<li><a href='tags_l.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a></li>";
                   }
                   echo "</ul>";
               }
@@ -59,14 +59,14 @@ include 'inc/header.php';
         </div>
       </div>
       <div class="edit">
-        <p><a href="edit.php?id=<?php echo $id; ?>">Edit Entry</a></p>
+        <p><a href="edit_l.php?id=<?php echo $id; ?>">Edit Entry</a></p>
         <p><input type="submit" class="button" value="Delete Entry" onclick="confirmDelete()"></p>
       </div>
       <script>
       function confirmDelete() {
         var r = confirm("Confirm delete.")
         if (r == true) {
-          window.location.replace("delete.php?id=<?php echo $id; ?>");
+          window.location.replace("delete_l.php?id=<?php echo $id; ?>");
         }
       }
       </script>
