@@ -5,7 +5,6 @@
 * Added dark background/light background option.
   * Changed the background color to midnight blue for the dark background.
   * Changed all text and link colors to white for the dark background.
-* Changed all visited link colors to dark gray.
 * Added the title attribute of 'Home' to the home page button (the button on the top left).
 * Set the opacity to .5 for all links and buttons on hover.
 * Added search field to the home page.
