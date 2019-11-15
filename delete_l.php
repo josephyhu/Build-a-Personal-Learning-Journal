@@ -16,12 +16,5 @@ if (delete_entry($id)) {
     header('refresh: 1; url = detail_l.php?id="' . $id . '"');
 }
 include 'inc/header_l.php';
-?>
-    <section>
-      <div class="container">
-        <a href="delete.php" class="button">Dark</a>
-      </div>
-    </section>
-<?php
+
 include 'inc/footer.php';
-?>

@@ -11,12 +11,5 @@ if (delete_all_entries()) {
     header('refresh: 1; url = index_l.php');
 }
 include 'inc/header_l.php';
-?>
-    <section>
-      <div class="container">
-        <a href="delete_all.php" class="button">Dark</a>
-      </div>
-    </section>
-<?php
+
 include 'inc/footer.php';
-?>
