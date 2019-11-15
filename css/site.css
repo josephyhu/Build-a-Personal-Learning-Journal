@@ -8,7 +8,7 @@ body {
 	font-size: 16px;
 	font-family: 'Cousine', serif;
 	font-weight: 400;
-	color: #FFF;
+	color: #fff;
 	background-color: #191970;
 }
 .container {
@@ -36,10 +36,13 @@ footer {
 }
 a {
   text-decoration: none;
-	color: #808080;
+	color: #fff;
 }
 a:hover {
   opacity: .5;
+}
+a:visited {
+	color: #a9a9a9;
 }
 
 
@@ -54,13 +57,13 @@ a:hover {
 	border: 2px solid #678f89;
 	border-radius: 4px;
 	text-decoration: none;
-	color: #FFF;
+	color: #fff;
 	position: relative;
 	text-align: center;
 	font-size: 14px;
 }
 .button.button-secondary {
-	background: #FFF;
+	background: #fff;
 	border: 2px solid #e1e1e1;
 	color: #404a49;
 }
@@ -101,7 +104,7 @@ h3 {
 	margin: 0;
 	font-weight: 400;
 	line-height: 1em;
-	color: #FFF;
+	color: #fff;
 }
 h1 {
 	font-size: 44px;
@@ -110,10 +113,6 @@ h1 {
 }
 h2 {
 	font-size: 32px;
-}
-h2 a {
-	text-decoration: none;
-	color: #FFF;
 }
 h3 {
 	font-size: 18px;
@@ -128,18 +127,12 @@ p {
 p a {
 	padding: 0;
 }
-p a:visited {
-	color: #551A8B;
-}
 ul li {
 	line-height: 1.8em;
 	font-size: 18px;
 }
 ul li a {
 	line-height: 1.8em;
-}
-ul li a:visited {
-	color: #551A8B;
 }
 
 

@@ -13,7 +13,8 @@ if (empty($page)) {
 $limit = 25;
 $offset = $limit * ($page - 1);
 
-include 'inc/header.php'; ?>
+include 'inc/header.php';
+?>
     <section>
       <div class="container">
         <?php

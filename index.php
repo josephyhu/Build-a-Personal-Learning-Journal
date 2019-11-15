@@ -28,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
     }
 }
 
-include 'inc/header.php'; ?>
+include 'inc/header.php';
+?>
     <section>
       <div class="container">
         <form method="get">

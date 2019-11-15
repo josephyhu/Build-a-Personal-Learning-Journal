@@ -22,7 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-include 'inc/header.php'; ?>
+include 'inc/header.php';
+?>
     <section>
       <div class="container">
         <div class="new-entry">

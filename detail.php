@@ -6,7 +6,8 @@ $item = get_entry($id);
 
 $pageTitle = $item['title'];
 
-include 'inc/header.php'; ?>
+include 'inc/header.php';
+?>
     <section>
       <div class="container">
         <div class="entry-list single">
