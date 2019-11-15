@@ -49,3 +49,6 @@
 ### Delete All Entries:
 ![Delete All](/img/delete-all.png)
 ![Entries Deleted](/img/entries-deleted.png)
+
+### Light Background:
+![Light Background](/img/light-bg.png)
