@@ -2,8 +2,8 @@
 3rd Treehouse PHP Techdegree project.
 
 ## Recent Changes
-~* Changed the background color from white to black.~
-~* Changed the background color again from black to midnight blue.~
+* ~Changed the background color from white to black.~
+* ~Changed the background color again from black to midnight blue.~
 * Added dark background/light background option.
 * Changed all text and link colors to white.
 * Changed all visited link colors to dark gray.
@@ -19,7 +19,7 @@
 ## Things to Improve
 1. Allow the user to set the current limit of entries per page from the following choices: 10, 25, 50, 100, and all.
    * Works on the first page, but does not work on subsequent pages.
-~1. Allow the user to change the background from light to dark and vice versa.~
+1. ~Allow the user to change the background from light to dark and vice versa.~
 1. Prevent the Next Page button from showing on the last page if there are exactly 25 (or whatever limit the user has set if (1) has been implemented) entries on that page. No problems if there are less than 25 (or whatever limit the user has set if (1) has been implemented) entries on the page.
 
 ## Screenshots
