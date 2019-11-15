@@ -25,7 +25,13 @@ include 'inc/header.php';
             echo "<a href='tags.php?tag=" . trim($tag) . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
         }
         ?>
-        <a href="tags_l.php?tag=<?php echo trim($tag); ?>" class="button">Light</a>
+        <?php
+        if ($page > 1) {
+            echo "<a href='tags_l.php?tag=" . trim($tag) . "&p=" . $page . "' class='button'>Light</a>";
+        } else {
+            echo "<a href='tags_l.php?tag=" . trim($tag) . "' class='button'>Light</a>";
+        }
+        ?>
         <div class="entry-list">
           <h1><?php echo "#" . trim($tag); ?></h1>
           <?php
