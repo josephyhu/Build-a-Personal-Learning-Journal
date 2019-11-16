@@ -4,7 +4,7 @@
 ## About
 This project allows the user to post journal entries that gets added to a database called journal.db. The user can also edit and delete specific entries, and they can even delete all entries.
 
-## Information About Pages
+## Information About the Pages
 ### Home Page (index.php)
 This page lists all the entries in descending order by date posted. It also has a search and delete all entries features, and it has pagination.
 
@@ -44,6 +44,7 @@ All pages ending in `_l` are exactly the same as the corresponding pages without
    * Works on the first page, but does not work on subsequent pages.
 1. ~Allow the user to change the background from light to dark and vice versa.~
 1. Prevent the Next Page button from showing on the last page if there are exactly 25 (or whatever limit the user has set if (1) has been implemented) entries on that page. No problems if there are less than 25 (or whatever limit the user has set if (1) has been implemented) entries on the page.
+1. Add comments to the code.
 
 ## Screenshots
 
