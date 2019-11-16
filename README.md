@@ -23,8 +23,8 @@ This page displays all entries by {tag} also in descending order by date posted.
 ### Delete and Delete All Pages (delete.php?id={id} and delete_all.php)
 These pages delete a specific entry by {id} and all entries respectively.
 
-### Pages Ending in `_l`
-All pages ending in `_l` are exactly the same as the corresponding pages without the `_l` except they have lighter backgrounds.
+### Pages with URLs Ending in `_l`
+All pages with URLs ending in `_l` are exactly the same as the corresponding pages without the `_l` in the URL except they have lighter backgrounds.
 
 ## Recent Changes
 * Added dark background/light background option.
