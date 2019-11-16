@@ -7,24 +7,42 @@ This project allows the user to post journal entries that gets added to a databa
 ## Information About Pages
 ### Home Page (index.php)
 This page lists all the entries in descending order by date posted. It also has a search and delete all entries features, and it has pagination.
+![Home Dark](/img/home-dark.png)
+![Search Dark](/img/search-dark.png)
 
 ### Detail Page (detail.php?id={id})
 This page displays a specific entry by {id}.
+![Detail Dark](/img/detail-dark.png)
 
 ### New Entry Page (new.php)
 This page allows the user to post new entries. The allowed fields are entry title, date posted, time spent learning, things learned, resources, and tags. The fields: title, date, time spent, and things learned are all required. The resources and tags fields are optional.
+![New Dark](/img/new-dark.png)
 
 ### Edit Entry Page (edit.php?id={id})
 This page allows the user to edit a specific entry by {id}. The fields are the same as the fields on the new entry page, but they are all optional.
+![Edit Dark](/img/edit-dark.png)
 
 ### Tag Page (tags.php?tag={tag})
 This page displays all entries by {tag} also in descending order by date posted. It also has pagination.
+![Tag Dark](/img/tag-dark.png)
 
 ### Delete and Delete All Pages (delete.php?id={id} and delete_all.php)
 These pages deletes a specific entry by {id} and all entries respectively.
+![Delete Confirmation Dark](img/delete-confirmation-dark.png)
+![Delete All Confirmation Dark](img/delete-all-confirmation-dark.png)
+![All Entries Deleted Dark(img/all-entries-deleted-dark.png)
 
 ### Pages Ending in `_l`
 All pages ending in `_l` are exactly the same as the corresponding pages without the `_l` except they have lighter backgrounds.
+![Home Light](/img/home-light.png)
+![Search Light](/img/search-light.png)
+![Detail Light](/img/detail-light.png)
+![New Light](/img/new-light.png)
+![Edit Light](/img/edit-light.png)
+![Tag Light](/img/tag-light.png)
+![Delete Confirmation Light](img/delete-confirmation-light.png)
+![Delete All Confirmation Light](img/delete-all-confirmation-light.png)
+![All Entries Deleted Light](img/all-entries-deleted-light.png)
 
 ## Recent Changes
 * Added dark background/light background option.
