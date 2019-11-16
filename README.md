@@ -21,7 +21,7 @@ This page allows the user to edit a specific entry by {id}. The fields are the s
 This page displays all entries by {tag} also in descending order by date posted. It also has pagination.
 
 ### Delete and Delete All Pages (delete.php?id={id} and delete_all.php)
-These pages deletes a specific entry by {id} and all entries respectively.
+These pages delete a specific entry by {id} and all entries respectively.
 
 ### Pages Ending in `_l`
 All pages ending in `_l` are exactly the same as the corresponding pages without the `_l` except they have lighter backgrounds.
