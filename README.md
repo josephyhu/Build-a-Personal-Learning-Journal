@@ -2,7 +2,7 @@
 3rd Treehouse PHP Techdegree project.
 
 ## About
-This project allows the user to post journal entries that gets added to a database called journal.db. The user can also edit and delete specific entries, and they can even delete all entries.
+This project allows the user to post journal entries that gets added to the database called journal.db. The user can also edit and delete specific entries, and they can even delete all entries.
 
 ## Information About the Pages
 ### Home Page (index.php)
