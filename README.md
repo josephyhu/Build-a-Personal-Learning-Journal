@@ -1,6 +1,31 @@
 # Build a Personal Learning Journal
 3rd Treehouse PHP Techdegree project.
 
+## About
+This project allows the user to post journal entries that gets added to a database called journal.db. The user can also edit and delete specific entries, and they can even delete all entries.
+
+## Information About Pages
+### Home Page (index.php)
+This page lists all the entries in descending order by date posted. It also has a search and delete all entries features, and it has pagination.
+
+### Detail Page (detail.php?id={id})
+This page displays a specific entry by {id}.
+
+### New Entry Page (new.php)
+This page allows the user to post new entries. The allowed fields are entry title, date posted, time spent learning, things learned, resources, and tags. The fields: title, date, time spent, and things learned are all required. The resources and tags fields are optional.
+
+### Edit Entry Page (edit.php?id={id})
+This page allows the user to edit a specific entry by {id}. The fields are the same as the fields on the new entry page, but they are all optional.
+
+### Tag Page (tags.php?tag={tag})
+This page displays all entries by {tag} also in descending order by date posted.
+
+### Delete and Delete All Pages (delete.php?id={id} and delete_all.php)
+These pages deletes a specific entry by {id} and all entries respectively.
+
+### Pages Ending in `_l`
+All pages ending in `_l` are exactly the same as the corresponding pages without the `_l` except they have lighter backgrounds.
+
 ## Recent Changes
 * Added dark background/light background option.
   * Changed the background color to midnight blue for the dark background.
