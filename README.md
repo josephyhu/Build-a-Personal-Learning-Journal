@@ -18,7 +18,7 @@ This page allows the user to post new entries. The allowed fields are entry titl
 This page allows the user to edit a specific entry by {id}. The fields are the same as the fields on the new entry page, but they are all optional.
 
 ### Tag Page (tags.php?tag={tag})
-This page displays all entries by {tag} also in descending order by date posted.
+This page displays all entries by {tag} also in descending order by date posted. It also has pagination.
 
 ### Delete and Delete All Pages (delete.php?id={id} and delete_all.php)
 These pages deletes a specific entry by {id} and all entries respectively.
