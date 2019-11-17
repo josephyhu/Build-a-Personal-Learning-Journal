@@ -17,4 +17,4 @@ if (delete_entry($id)) {
 }
 include 'inc/header_l.php';
 
-include 'inc/footer.php';
+include 'inc/footer_l.php';

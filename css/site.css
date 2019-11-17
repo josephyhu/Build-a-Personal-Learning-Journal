@@ -127,6 +127,7 @@ p a {
 ul li {
 	line-height: 1.8em;
 	font-size: 18px;
+	list-style-type: none;
 }
 ul li a {
 	line-height: 1.8em;
