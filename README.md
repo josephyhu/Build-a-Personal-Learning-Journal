@@ -46,27 +46,3 @@ All pages with URLs ending in `_l` are exactly the same as the corresponding pag
 1. ~Allow the user to change the background from light to dark and vice versa.~
 1. Prevent the Next Page button from showing on the last page if there are exactly 25 (or whatever limit the user has set if (1) has been implemented) entries on that page. No problems if there are less than 25 (or whatever limit the user has set if (1) has been implemented) entries on the page.
 1. Add comments to the code.
-
-## Screenshots
-
-### Dark Background
-![Home Dark](/img/home-dark.png)
-![Search Dark](/img/search-dark.png)
-![Detail Dark](/img/detail-dark.png)
-![New Dark](/img/new-dark.png)
-![Edit Dark](/img/edit-dark.png)
-![Tag Dark](/img/tag-dark.png)
-![Delete Confirmation Dark](img/delete-confirmation-dark.png)
-![Delete All Confirmation Dark](img/delete-all-confirmation-dark.png)
-![All Entries Deleted Dark](img/all-entries-deleted-dark.png)
-
-### Light Background
-![Home Light](/img/home-light.png)
-![Search Light](/img/search-light.png)
-![Detail Light](/img/detail-light.png)
-![New Light](/img/new-light.png)
-![Edit Light](/img/edit-light.png)
-![Tag Light](/img/tag-light.png)
-![Delete Confirmation Light](img/delete-confirmation-light.png)
-![Delete All Confirmation Light](img/delete-all-confirmation-light.png)
-![All Entries Deleted Light](img/all-entries-deleted-light.png)
