@@ -15,7 +15,7 @@ This page displays a specific entry by {id}.
 This page allows the user to post new entries. The allowed fields are entry title, date posted, time spent learning, things learned, resources, and tags. The fields: title, date, time spent, and things learned are all required. The resources and tags fields are optional.
 
 ### Edit Entry Page (edit.php?id={id})
-This page allows the user to edit a specific entry by {id}. The fields are the same as the fields on the new entry page, but they are all optional.
+This page allows the user to edit a specific entry by {id}. It has the same fields as the new entry page, and the required and the optional fields are the same.
 
 ### Tag Page (tags.php?tag={tag})
 This page displays all entries by {tag} in descending order by date posted then by id also in descending order. It also has pagination.
