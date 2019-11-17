@@ -12,4 +12,4 @@ if (delete_all_entries()) {
 }
 include 'inc/header_l.php';
 
-include 'inc/footer_l.php';
+include 'inc/footer.php';

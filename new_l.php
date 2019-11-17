@@ -52,4 +52,4 @@ include 'inc/header_l.php';
         </div>
       </div>
     </section>
-<?php include 'inc/footer_l.php'; ?>
+<?php include 'inc/footer.php'; ?>

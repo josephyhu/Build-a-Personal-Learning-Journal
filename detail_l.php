@@ -71,4 +71,4 @@ include 'inc/header_l.php';
       }
       </script>
     </section>
-<?php include 'inc/footer_l.php'; ?>
+<?php include 'inc/footer.php'; ?>
