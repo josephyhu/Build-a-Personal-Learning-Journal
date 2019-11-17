@@ -8,9 +8,6 @@ This project allows the user to post journal entries that gets added to the data
 ### Home Page (index.php)
 This page lists all the entries ordered first by date posted in descending order then by {id} in descending order. It also has a search and delete all entries features, and it has pagination.
 
-### About Me Page (about.php)
-Self-explanatory.
-
 ### Detail Page (detail.php?id={id})
 This page displays a specific entry by {id}.
 
@@ -42,7 +39,6 @@ All pages with URLs ending in `_l` are exactly the same as the corresponding pag
 * Added delete all entries button to the home page with a confirmation box on click.
 * Added two links on either side of the copyright in the footer which sends the user to the top of the page.
 * Now the entries on both home and tags pages are ordered first by date posted in descending order then by id also in descending order.
-* Added about me page.
 
 ## Things to Improve
 1. Allow the user to set the current limit of entries per page from the following choices: 10, 25, 50, 100, and all.
