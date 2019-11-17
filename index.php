@@ -11,10 +11,6 @@ if (empty($page)) {
 $limit = 25;
 $offset = $limit * ($page - 1);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-}
-
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
     $search = trim(filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING));
 
@@ -22,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['search'])) {
     $count = count_entries($search);
 
     if ($count == 1) {
-        echo "Found " . $count . " entry.";
+        echo "Found " . $count . " entry for the term: " . $search . ".";
     } else {
-        echo "Found " . $count . " entries.";
+        echo "Found " . $count . " entries for the term: " . $search . ".";
     }
 }
 
