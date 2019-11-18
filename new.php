@@ -1,4 +1,16 @@
 <?php
+/**
+ * Allows the user to add a new entry.
+ * Dark background.
+ *
+ * @param string $title The title of the entry.
+ * @param string $date The date the entry was posted.
+ * @param int $time The time spent learning.
+ * @param string $timeUnits The hour(s) or the minute(s).
+ * @param mixed $learned What the user has learned.
+ * @param mixed $resources The resources the user used for their post.
+ * @param mixed $tag The tags for the entry.
+ */
 require 'inc/functions.php';
 
 $title = $date = $time = $learned = $resources = $tag = '';

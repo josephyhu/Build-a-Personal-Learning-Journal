@@ -1,4 +1,14 @@
 <?php
+/**
+ * Displays all entries. Allows the user to delete all entries. Displays a confirmation box when the delete all button is clicked.
+ * Dark background.
+ *
+ * @param int $limit The number of entries per page.
+ * @param int $offset The number the entries should start from per page.
+ * @param string $title The title of the entry.
+ * @param string $date The date the entry was posted.
+ * @param mixed $tag The tags for the entry.
+ */
 require 'inc/functions.php';
 
 $pageTitle = 'Home';

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Selects id, title, date, and tags from all entries ordered first by date in descending order then by id in descending order limited by $limit per page and starting at $offset.
+ *
+ * @param int $limit The number of entries per page.
+ * @param int $offset The number the entries should start from per page.
+ */
 function get_entry_list($limit, $offset) {
     include 'connection.php';
 
@@ -15,6 +21,12 @@ function get_entry_list($limit, $offset) {
     return $results->fetchAll();
 }
 
+/**
+ * Selects id, title, date, and tags from all entries whos tags match $tag with anything at the start or the end of it ordered first by date in descending order then by id in descending order limited by $limit per page and starting at $offset.
+ *
+ * @param int $limit The number of entries per page.
+ * @param int $offset The number the entries should start from per page.
+ */
 function get_entry_list_by_tag($tag, $limit, $offset) {
     include 'connection.php';
 
@@ -31,6 +43,11 @@ function get_entry_list_by_tag($tag, $limit, $offset) {
     return $results->fetchAll();
 }
 
+/**
+ * Selects everything from a specific entry with id matching $id.
+ *
+ * @param int $id The entry id.
+ */
 function get_entry($id) {
     include 'connection.php';
 
@@ -46,6 +63,12 @@ function get_entry($id) {
     return $results->fetch();
 }
 
+/**
+ * Selects id, title, date, and tags from all entries whos titles match $search with anything at the start or the end of it ordered first by date in descending order then by id in descending order limited by $limit per page and starting at $offset.
+ *
+ * @param int $limit The number of entries per page.
+ * @param int $offset The number the entries should start from per page.
+ */
 function search_entries($search, $limit, $offset) {
     include 'connection.php';
 
@@ -63,6 +86,9 @@ function search_entries($search, $limit, $offset) {
     return $results->fetchAll();
 }
 
+/**
+ * Counts the number of entries whose titles match $search with anything at the start and the end of it.
+ */
 function count_entries($search) {
     include 'connection.php';
 
@@ -77,6 +103,17 @@ function count_entries($search) {
     return $results->fetchColumn();
 }
 
+/**
+ * Adds a new entry.
+ *
+ * @param string $title The title of the entry.
+ * @param string $date The date the entry was posted.
+ * @param int $time The time spent learning.
+ * @param string $timeUnits The hour(s) or the minute(s).
+ * @param mixed $learned What the user has learned.
+ * @param mixed $resources The resources the user used for their post.
+ * @param mixed $tag The tags for the entry.
+ */
 function add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag) {
     include 'connection.php';
 
@@ -98,6 +135,18 @@ function add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag)
     return true;
 }
 
+/**
+ * Edits an existing entry.
+ *
+ * @param string $title The title of the entry.
+ * @param string $date The date the entry was edited.
+ * @param int $time The time spent learning.
+ * @param string $timeUnits The hour(s) or the minute(s).
+ * @param mixed $learned What the user has learned.
+ * @param mixed $resources The resources the user used for their post.
+ * @param mixed $tag The tags for the entry.
+ * @param int $id The entry id.
+ */
 function edit_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag, $id) {
     include 'connection.php';
 
@@ -120,6 +169,11 @@ function edit_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag
     return true;
 }
 
+/**
+ * Deletes an entry by its id.
+ *
+ * @param int $id The entry id.
+ */
 function delete_entry($id) {
     include 'connection.php';
 
@@ -135,6 +189,9 @@ function delete_entry($id) {
     return true;
 }
 
+/**
+ * Deletes all entries from the site.
+ */
 function delete_all_entries() {
     include 'connection.php';
 
