@@ -1,14 +1,4 @@
 <?php
-/**
- * Displays all entries. Allows the user to delete all entries. Displays a confirmation box when the delete all button is clicked.
- * Light background.
- *
- * @param int $limit The number of entries per page.
- * @param int $offset The number the entries should start from per page.
- * @param string $title The title of the entry.
- * @param string $date The date the entry was posted.
- * @param mixed $tag The tags for the entry.
- */
 require 'inc/functions.php';
 
 $pageTitle = 'Home';
@@ -77,7 +67,7 @@ include 'inc/header_l.php';
               foreach ($entries as $entry) {
                   echo "<article>";
                   echo "<h2><a href='detail_l.php?id=" . $entry['id'] . "'>" . $entry['title'] . "</a></h2>";
-                  echo "<time datetime='" . $entry['date'] . "'>" . date("F d, Y", strtotime($entry['date'])) . "</time><br>";
+                  echo "<time datetime='" . $entry['date'] . " " . $entry['time'] . "'>" . date("F d, Y H:i", strtotime($entry['date'] . " " . $entry['time'])) . "</time><br>";
                   if (!empty($entry['tags'])) {
                       $tags = explode(',', $entry['tags']);
                       foreach ($tags as $tag) {
@@ -90,7 +80,7 @@ include 'inc/header_l.php';
               foreach (get_entry_list($limit, $offset) as $item) {
                   echo "<article>";
                   echo "<h2><a href='detail_l.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
-                  echo "<time datetime='" . $item['date'] . "'>" . date("F d, Y", strtotime($item['date'])) . "</time><br>";
+                  echo "<time datetime='" . $item['date'] . " " . $item['time'] . "'>" . date("F d, Y", strtotime($item['date'] . " " . $item['time'])) . "</time><br>";
                   if (!empty($item['tags'])) {
                       $tags = explode(',', $item['tags']);
                       foreach ($tags as $tag) {

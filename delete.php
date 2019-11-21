@@ -1,10 +1,4 @@
 <?php
-/**
- * Deletes a specific entry by its id. Displays success message then redirects to index.php on success, and displays a failure message then redirects to the entry on failure.
- * Dark background.
- *
- * @param int $id The entry id.
- */
 require 'inc/functions.php';
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);

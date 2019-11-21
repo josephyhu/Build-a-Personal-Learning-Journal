@@ -1,17 +1,4 @@
 <?php
-/**
- * Displays all information for a specific entry by id. Allows the user to eithe edit or delete the entry. Displays a confirmation box if the delete button is clicked.
- * Light background.
- *
- * @param int $id The entry id.
- * @param string $title The title of the entry.
- * @param string $date The date the entry was posted.
- * @param int $time The time spent learning.
- * @param string $timeUnits The hour(s) or the minute(s).
- * @param mixed $learned What the user has learned.
- * @param mixed $resources The resources the user used for their post.
- * @param mixed $tag The tags for the entry.
- */
 require 'inc/functions.php';
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
@@ -27,7 +14,7 @@ include 'inc/header_l.php';
         <div class="entry-list single">
           <article>
             <h1><?php echo $item['title']; ?></h1>
-            <time datetime="<?php $item['date']; ?>"><?php echo date('F d, Y', strtotime($item['date'])); ?></time>
+            <time datetime="<?php $item['date'] . " " . $item['time']; ?>"><?php echo date('F d, Y H:i', strtotime($item['date'] . " " . $item['time'])); ?></time>
             <div class='entry'>
               <h3>Time Spent: </h3>
               <p><?php echo $item['time_spent'] . " " . $item['time_units']; ?></p>

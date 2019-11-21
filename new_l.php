@@ -1,32 +1,21 @@
 <?php
-/**
- * Allows the user to add a new entry.
- * Light background.
- *
- * @param string $title The title of the entry.
- * @param string $date The date the entry was posted.
- * @param int $time The time spent learning.
- * @param string $timeUnits The hour(s) or the minute(s).
- * @param mixed $learned What the user has learned.
- * @param mixed $resources The resources the user used for their post.
- * @param mixed $tag The tags for the entry.
- */
 require 'inc/functions.php';
 
-$title = $date = $time = $learned = $resources = $tag = '';
+$title = $date = $time = $timeSpent = $learned = $resources = $tag = '';
 
 $pageTitle = 'New Entry';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
     $date = trim(filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING));
-    $time = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_NUMBER_INT));
+    $time = trim(filter_input(INPUT_POST, 'time', FILTER_SANITIZE_STRING));
+    $timeSpent = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_NUMBER_INT));
     $timeUnits = trim(filter_input(INPUT_POST, 'timeSpentUnits', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
     $tag = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
 
-    if (add_entry($title, $date, $time, $timeUnits, $learned, $resources, $tag)) {
+    if (add_entry($title, $date, $time, $timeSpent, $timeUnits, $learned, $resources, $tag)) {
         echo 'Successfully added entry.';
         header('refresh: 1; url = index_l.php');
     } else {
@@ -45,7 +34,11 @@ include 'inc/header_l.php';
             <label for="title">Title<span style="color:red">*</span></label>
             <input id="title" type="text" name="title" required><br>
             <label for="date">Date<span style="color:red">*</span></label>
-            <input id="date" type="date" name="date" required><br>
+            <input id="date" type="date" name="date" value="<?php echo date('Y-m-d'); ?>" required><br>
+            <label for"time">Time<span style="color:red">*</span></label>
+            <input id="time" type="time" name="time" value="<?php
+                                                            date_default_timezone_set('America/New_York');
+                                                            echo date('H:i'); ?>" required></br>
             <label for="time-spent">Time Spent<span style="color:red">*</span></label>
             <input id="time-spent" type="number" name="timeSpent" required>
             <select name="timeSpentUnits" required>

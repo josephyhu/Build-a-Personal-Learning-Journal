@@ -1,8 +1,4 @@
 <?php
-/**
- * Deletes all entries from the site. Displays either a success or a failure message then redirects to index_l.php.
- * Light background.
- */
 require 'inc/functions.php';
 
 $pageTitle = 'Delete All Entries';
