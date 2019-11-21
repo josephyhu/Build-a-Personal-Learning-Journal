@@ -80,7 +80,7 @@ include 'inc/header_l.php';
               foreach (get_entry_list($limit, $offset) as $item) {
                   echo "<article>";
                   echo "<h2><a href='detail_l.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
-                  echo "<time datetime='" . $item['date'] . " " . $item['time'] . "'>" . date("F d, Y", strtotime($item['date'] . " " . $item['time'])) . "</time><br>";
+                  echo "<time datetime='" . $item['date'] . " " . $item['time'] . "'>" . date("F d, Y H:i", strtotime($item['date'] . " " . $item['time'])) . "</time><br>";
                   if (!empty($item['tags'])) {
                       $tags = explode(',', $item['tags']);
                       foreach ($tags as $tag) {

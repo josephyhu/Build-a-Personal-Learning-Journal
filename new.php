@@ -5,6 +5,8 @@ $title = $date = $time = $timeSpent = $learned = $resources = $tag = '';
 
 $pageTitle = 'New Entry';
 
+date_default_timezone_set('America/New_York');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
     $date = trim(filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING));
@@ -36,9 +38,7 @@ include 'inc/header.php';
             <label for="date">Date<span style="color:red">*</span></label>
             <input id="date" type="date" name="date" value="<?php echo date('Y-m-d'); ?>" required><br>
             <label for"time">Time<span style="color:red">*</span></label>
-            <input id="time" type="time" name="time" value="<?php
-                                                            date_default_timezone_set('America/New_York');
-                                                            echo date('H:i'); ?>" required></br>
+            <input id="time" type="time" name="time" value="<?php echo date('H:i'); ?>" required></br>
             <label for="time-spent">Time Spent<span style="color:red">*</span></label>
             <input id="time-spent" type="number" name="timeSpent" required>
             <select name="timeSpentUnits" required>

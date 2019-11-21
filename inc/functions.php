@@ -18,7 +18,7 @@ function get_entry_list($limit, $offset) {
 function get_entry_list_by_tag($tag, $limit, $offset) {
     include 'connection.php';
 
-    $sql = "SELECT id, title, date, tags FROM entries WHERE tags LIKE '%$tag%' ORDER BY date DESC, time DESC, id DESC LIMIT ? OFFSET ?";
+    $sql = "SELECT id, title, date, time, tags FROM entries WHERE tags LIKE '%$tag%' ORDER BY date DESC, time DESC, id DESC LIMIT ? OFFSET ?";
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $limit, PDO::PARAM_INT);
@@ -50,7 +50,7 @@ function search_entries($search, $limit, $offset) {
     include 'connection.php';
 
 
-    $sql = "SELECT id, title, date, tags FROM entries WHERE title LIKE '%$search%' ORDER BY date DESC, time DESC, id DESC LIMIT ? OFFSET ?";
+    $sql = "SELECT id, title, date, time, tags FROM entries WHERE title LIKE '%$search%' ORDER BY date DESC, time DESC, id DESC LIMIT ? OFFSET ?";
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $limit, PDO::PARAM_INT);
