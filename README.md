@@ -39,7 +39,7 @@ All pages with URLs ending in `_l` are exactly the same as the corresponding pag
 * Added delete all entries button to the home page with a confirmation box on click.
 * Added two links on either side of the copyright in the footer which sends the user to the top of the page.
 * Now the entries on both home and tags pages are ordered first by date posted in descending order, then by time posted in descending order, and finally by id also in descending order.
-* Added ability to enter time posted. Also now, the date and time defaults to current date and time (in UTC-05:00 or US/New York time).
+* Added ability to enter time posted. Also now, the date and time defaults to current date and time (in UTC-05:00 or US/New York time) when adding a new post.
 
 ## Things to Improve
 1. Allow the user to set the current limit of entries per page from the following choices: 10, 25, 50, 100, and all.
