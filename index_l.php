@@ -32,25 +32,23 @@ include 'inc/header_l.php';
           Search:
           <input type="search" name="search" required>
         </form>
-        <br>
+      <br>
         <?php
         if (!empty($entries) && $page > 1) {
-            echo "<a href='index_l.php?search=" . trim($search) . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
+            echo "<a href='index_l.php?search=" . trim($search) . "&p=" . ($page-1) . "' class='button'>Page " . ($page-1) . "</a>";
         }
         if (count($entries) >= $limit) {
-            echo "<a href='index_l.php?search=" . trim($search) . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
+            echo "<a href='index_l.php?search=" . trim($search) . "&p=" . ($page+1) . "' class='button'>Page " . ($page+1) . "</a>";
         }
         if (empty($entries) && $page > 1) {
-            echo "<a href='index_l.php?p=" . ($page-1). "' class='button'>Previous Page</a>";
+            echo "<a href='index_l.php?p=" . ($page-1). "' class='button'>Page " . ($page-1) . "</a>";
         }
         if (empty($entries) && count(get_entry_list($limit, $offset)) >= $limit) {
-            echo "<a href='index_l.php?p=" . ($page+1). "' class='button'>Next Page</a>";
+            echo "<a href='index_l.php?p=" . ($page+1). "' class='button'>Page " . ($page+1) . "</a>";
         }
         if (!empty(get_entry_list($limit, $offset))) {
-            echo "<input type='submit' class='button' value='Delete All Entries' onclick='confirmDeleteAll()'>";
+            echo "<input type='submit' class='button' value='Delete All' onclick='confirmDeleteAll()'>";
         }
-        ?>
-        <?php
         if (!empty($entries) && $page > 1) {
             echo "<a href='index.php?search=" . trim($search) . "&p=" . $page . "' class='button'>Dark</a>";
         } elseif (!empty($entries) && $page == 1) {
