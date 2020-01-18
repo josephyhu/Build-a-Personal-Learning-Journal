@@ -77,17 +77,17 @@ function count_entries($search) {
     return $results->fetchColumn();
 }
 
-function add_entry($title, $date, $time, $timeSpent, $timeUnits, $learned, $resources, $tag) {
+function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag) {
     include 'connection.php';
 
-    $sql = 'INSERT INTO entries (title, date, time, time_spent, time_units, learned, resources, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    $sql = 'INSERT INTO entries (title, date, time, time_spent_h, time_spent_m, learned, resources, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $title, PDO::PARAM_STR);
         $results->bindValue(2, $date, PDO::PARAM_STR);
         $results->bindValue(3, $time, PDO::PARAM_STR);
-        $results->bindValue(4, $timeSpent, PDO::PARAM_INT);
-        $results->bindValue(5, $timeUnits, PDO::PARAM_STR);
+        $results->bindValue(4, $timeSpentH, PDO::PARAM_INT);
+        $results->bindValue(5, $timeSpentM, PDO::PARAM_STR);
         $results->bindValue(6, $learned, PDO::PARAM_LOB);
         $results->bindValue(7, $resources, PDO::PARAM_LOB);
         $results->bindValue(8, $tag, PDO::PARAM_LOB);
@@ -99,17 +99,17 @@ function add_entry($title, $date, $time, $timeSpent, $timeUnits, $learned, $reso
     return true;
 }
 
-function edit_entry($title, $date, $time, $timeSpent, $timeUnits, $learned, $resources, $tag, $id) {
+function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag, $id) {
     include 'connection.php';
 
-    $sql = 'UPDATE entries SET title = ?, date = ?, time = ?, time_spent = ?, time_units = ?, learned = ?, resources = ?, tags = ? WHERE id = ?';
+    $sql = 'UPDATE entries SET title = ?, date = ?, time = ?, time_spent_h = ?, time_spent_m = ?, learned = ?, resources = ?, tags = ? WHERE id = ?';
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $title, PDO::PARAM_STR);
         $results->bindValue(2, $date, PDO::PARAM_STR);
         $results->bindValue(3, $time, PDO::PARAM_STR);
-        $results->bindvalue(4, $timeSpent, PDO::PARAM_INT);
-        $results->bindValue(5, $timeUnits, PDO::PARAM_STR);
+        $results->bindvalue(4, $timeSpentH, PDO::PARAM_INT);
+        $results->bindValue(5, $timeSpentM, PDO::PARAM_STR);
         $results->bindValue(6, $learned, PDO::PARAM_LOB);
         $results->bindValue(7, $resources, PDO::PARAM_LOB);
         $results->bindValue(8, $tag, PDO::PARAM_LOB);

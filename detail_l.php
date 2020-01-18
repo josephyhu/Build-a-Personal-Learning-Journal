@@ -4,7 +4,7 @@ require 'inc/functions.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $item = get_entry($id);
 
-$pageTitle = $item['title'];
+$pageTitle = ' | ' . $item['title'];
 
 include 'inc/header_l.php';
 ?>
@@ -17,7 +17,7 @@ include 'inc/header_l.php';
             <time datetime="<?php $item['date'] . " " . $item['time']; ?>"><?php echo date('F d, Y H:i', strtotime($item['date'] . " " . $item['time'])); ?></time>
             <div class='entry'>
               <h3>Time Spent: </h3>
-              <p><?php echo $item['time_spent'] . " " . $item['time_units']; ?></p>
+              <p><?php echo $item['time_spent_h'] . " hour(s) " . $item['time_spent_m'] . " minute(s)"; ?></p>
             </div>
             <div class='entry'>
               <h3>What I Learned:</h3>

@@ -3,7 +3,7 @@ require 'inc/functions.php';
 
 $tag = filter_input(INPUT_GET, 'tag', FILTER_SANITIZE_STRING);
 
-$pageTitle = trim($tag);
+$pageTitle = ' | ' . trim($tag);
 
 $page = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_NUMBER_INT);
 if (empty($page)) {

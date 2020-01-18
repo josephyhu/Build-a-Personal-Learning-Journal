@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$pageTitle = 'Delete All Entries';
+$pageTitle = ' | Delete All Entries';
 
 if (delete_all_entries()) {
     echo 'Successfully deleted all entries.';

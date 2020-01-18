@@ -1,8 +1,6 @@
 <?php
 require 'inc/functions.php';
 
-$pageTitle = 'Home';
-
 $page = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_NUMBER_INT);
 if (empty($page)) {
     $page = 1;
@@ -47,7 +45,7 @@ include 'inc/header.php';
             echo "<a href='index.php?p=" . ($page+1). "' class='button'>Next Page</a>";
         }
         if (!empty(get_entry_list($limit, $offset))) {
-            echo "<input type='submit' class='button' value='Delete All Entries' onclick='confirmDeleteAll()'>";
+            echo "<input type='submit' class='button' value='Delete All' onclick='confirmDeleteAll()'>";
         }
         ?>
         <?php

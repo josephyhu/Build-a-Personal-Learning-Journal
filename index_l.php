@@ -1,8 +1,6 @@
 <?php
 require 'inc/functions.php';
 
-$pageTitle = 'Home';
-
 $page = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_NUMBER_INT);
 if (empty($page)) {
     $page = 1;

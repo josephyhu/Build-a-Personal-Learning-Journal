@@ -1,24 +1,24 @@
 <?php
 require 'inc/functions.php';
 
-$title = $date = $time = $timeSpent = $learned = $resources = $tag = '';
+$title = $date = $time = $timeSpentH = $timeSpentM = $learned = $resources = $tag = '';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $item = get_entry($id);
 
-$pageTitle = 'Edit Entry';
+$pageTitle = ' | Edit Entry';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
     $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
     $date = trim(filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING));
     $time = trim(filter_input(INPUT_POST, 'time', FILTER_SANITIZE_STRING));
-    $timeSpent = trim(filter_input(INPUT_POST, 'timeSpent', FILTER_SANITIZE_NUMBER_INT));
-    $timeUnits = trim(filter_input(INPUT_POST, 'timeSpentUnits', FILTER_SANITIZE_STRING));
+    $timeSpentH = trim(filter_input(INPUT_POST, 'timeSpentH', FILTER_SANITIZE_NUMBER_INT));
+    $timeSpentM = trim(filter_input(INPUT_POST, 'timeSpentM', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
     $tag = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
 
-    if (edit_entry($title, $date, $time, $timeSpent, $timeUnits, $learned, $resources, $tag, $id)) {
+    if (edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag, $id)) {
         echo 'Successfully edited entry.';
         header('refresh: 1; url = detail.php?id=' . $id . '');
     } else {
@@ -41,11 +41,8 @@ include 'inc/header.php';
             <label for"time">Time<span style="color:red">*</span></label>
             <input id="time" type="time" name="time" value="<?php echo $item['time']; ?>" required></br>
             <label for="time-spent">Time Spent<span style="color:red">*</span></label>
-            <input id="time-spent" type="number" name="timeSpent" value="<?php echo $item['time_spent']; ?>" required>
-            <select name="timeSpentUnits" required>
-              <option value="hour(s)" <?php if ($item['time_units'] == 'hour(s)') { echo 'selected'; } ?>>hour(s)</option>
-              <option value="minute(s)" <?php if ($item['time_units'] == 'minute(s)') { echo 'selected'; } ?>>minute(s)</option>
-            </select>
+            <input id="time-spent" type="number" name="timeSpentH" value="<?php echo $item['time_spent_h']; ?>" required> hour(s)
+            <input id="time-spent" type="number" name="timeSpentM" value="<?php echo $item['time_spent_m']; ?>" required> minute(s)
             <label for="what-i-learned">What I Learned<span style="color:red">*</span></label>
             <textarea id="what-i-learned" rows="5" name="whatILearned" required><?php echo $item['learned']; ?></textarea>
             <label for="resources-to-remember">Resources to Remember (separate with commas, start links with 'http://' or 'https://')</label>
