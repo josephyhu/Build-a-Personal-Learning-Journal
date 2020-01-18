@@ -34,7 +34,6 @@ All pages with URLs ending in `_l` are exactly the same as the corresponding pag
 * Set the opacity to .5 for all links and buttons on hover.
 * Added search field to the home page.
 * Added pagination to the home and the tags pages with the current limit of 25 entries per page.
-* Added a select field to the new entry and the edit entry pages which allows the user to select either hour(s) or minute(s) for the time spent.
 * Changed the delete link in the detail page to a button with a confirmation box on click.
 * Added delete all entries button to the home page with a confirmation box on click.
 * Added two links on either side of the copyright in the footer which sends the user to the top of the page.
