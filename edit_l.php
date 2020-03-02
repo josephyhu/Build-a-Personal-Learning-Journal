@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag_list, $id)) {
         echo 'Successfully edited entry.';
-        header('refresh: 1; url = detail.php?id=' . $id . '');
+        header('refresh: 1; url = detail_l.php?id=' . $id . '');
     } else {
         echo 'Unable to edit entry. Try again.';
     }

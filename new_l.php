@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag_list)) {
         echo 'Successfully added entry.';
-        header('refresh: 1; url = index.php');
+        header('refresh: 1; url = index_l.php');
     } else {
         echo 'Unable to add entry. Try again.';
     }
