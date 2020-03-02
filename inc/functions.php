@@ -54,13 +54,13 @@ function get_entry_list_by_tag($limit, $offset, $tag) {
     return $results->fetchAll();
 }
 
-function get_entry($id) {
+function get_entry($entry_id) {
     include 'connection.php';
 
-    $sql = "SELECT * FROM entries WHERE id = :id";
+    $sql = "SELECT * FROM entries WHERE id = :entry_id";
     try {
         $results = $db->prepare($sql);
-        $results->bindValue('id', $id, PDO::PARAM_INT);
+        $results->bindValue('entry_id', $entry_id, PDO::PARAM_INT);
         $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
@@ -133,14 +133,15 @@ function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $re
     return true;
 }
 
-function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tags, $id) {
+function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tags, $entry_id) {
     include 'connection.php';
 
     $results = $db->prepare('DELETE FROM entry_tag WHERE entry_id = :entry_id');
-    $results->bindValue('entry_id', $id);
+    $results->bindValue('entry_id', $entry_id);
     $results->execute();
 
-    $sql = 'UPDATE entries SET title = :title, date = :date, time = :time, time_spent_h = :time_spent_h, time_spent_m = :time_spent_m, learned = :learned, resources = :resources WHERE id = :id';
+    $sql = 'UPDATE entries SET title = :title, date = :date, time = :time, time_spent_h = :time_spent_h, ';
+    $sql .= 'time_spent_m = :time_spent_m, learned = :learned, resources = :resources WHERE id = :entry_id';
     try {
         $results = $db->prepare($sql);
         $results->bindValue('title', $title, PDO::PARAM_STR);
@@ -150,7 +151,7 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
         $results->bindValue('time_spent_m', $timeSpentM, PDO::PARAM_STR);
         $results->bindValue('learned', $learned, PDO::PARAM_LOB);
         $results->bindValue('resources', $resources, PDO::PARAM_LOB);
-        $results->bindValue('id', $id, PDO::PARAM_INT);
+        $results->bindValue('entry_id', $entry_id, PDO::PARAM_INT);
         $results->execute();
 
         foreach ($tags as $tag) {
@@ -160,7 +161,7 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
             $results->execute();
             $tag_id = $db->lastInsertId();
 
-            $db->query("INSERT INTO entry_tag (entry_id, tag_id) VALUES ($id, $tag_id)");
+            $db->query("INSERT INTO entry_tag (entry_id, tag_id) VALUES ($entry_id, $tag_id)");
         }
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
@@ -169,13 +170,13 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
     return true;
 }
 
-function delete_entry($id) {
+function delete_entry($entry_id) {
     include 'connection.php';
 
-    $sql = 'DELETE FROM entries WHERE id = :id';
+    $sql = 'DELETE FROM entries WHERE id = :entry_id';
     try {
         $results = $db->prepare($sql);
-        $results->bindValue('id', $id, PDO::PARAM_INT);
+        $results->bindValue('entry_id', $entry_id, PDO::PARAM_INT);
         $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
