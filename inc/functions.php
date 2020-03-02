@@ -40,7 +40,7 @@ function get_entry_list_by_tag($limit, $offset, $tag) {
     $sql = "SELECT entries.id, title, date, time FROM entries ";
     $sql .= "JOIN entry_tag ON entries.id = entry_tag.entry_id ";
     $sql .= "JOIN tags ON entry_tag.tag_id = tags.id ";
-    $sql .= "WHERE tags.tag LIKE '%$tag%' ";
+    $sql .= "WHERE tag LIKE '%$tag%' ";
     $sql .= "ORDER BY date DESC, time DESC, entries.id DESC LIMIT :limit OFFSET :offset";
     try {
         $results = $db->prepare($sql);
@@ -74,7 +74,7 @@ function search_entries($search, $limit, $offset) {
 
 
     $sql = "SELECT id, title, date, time FROM entries WHERE title LIKE '%$search%' ";
-    $sql .= "ORDER BY date DESC, time DESC, entries.id DESC LIMIT :limit OFFSET :offset";
+    $sql .= "ORDER BY date DESC, time DESC, id DESC LIMIT :limit OFFSET :offset";
     try {
         $results = $db->prepare($sql);
         $results->bindValue('limit', $limit, PDO::PARAM_INT);
