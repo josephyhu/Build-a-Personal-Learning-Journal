@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$title = $date = $time = $timeSpentH = $timeSpentM = $learned = $resources = $tag = '';
+$title = $date = $time = $timeSpentH = $timeSpentM = $learned = $resources = $tags = '';
 
 $pageTitle = ' | New Entry';
 
@@ -15,11 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $timeSpentM = trim(filter_input(INPUT_POST, 'timeSpentM', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
-    $tag = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
+    $tags = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
+    $tag_list = explode(',', $tags);
 
-    if (add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag)) {
+    if (add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag_list)) {
         echo 'Successfully added entry.';
-        header('refresh: 1; url = index_l.php');
+        header('refresh: 1; url = index.php');
     } else {
         echo 'Unable to add entry. Try again.';
     }

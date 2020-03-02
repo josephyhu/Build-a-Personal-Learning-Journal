@@ -45,14 +45,12 @@ include 'inc/header.php';
             <div class='entry'>
               <h3>Tags:</h3>
               <?php
-              if (!empty($item['tags'])) {
-                  $tags = explode(',', $item['tags']);
-                  echo "<ul>";
-                  foreach ($tags as $tag) {
-                      echo "<li><a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a></li>";
-                  }
-                  echo "</ul>";
+              $tags = get_tags($id);
+              echo "<ul>";
+              foreach ($tags as $tag) {
+                  echo "<li><a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a></li>";
               }
+              echo "</ul>";
               ?>
             </div>
           </article>

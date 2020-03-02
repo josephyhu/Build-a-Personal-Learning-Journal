@@ -21,7 +21,7 @@ include 'inc/header_l.php';
         if ($page > 1) {
             echo "<a href='tags_l.php?tag=" . trim($tag) . "&p=" . ($page-1) . "' class='button'>Previous Page</a>";
         }
-        if (count(get_entry_list_by_tag($tag, $limit, $offset)) >= $limit) {
+        if (count(get_entry_list_by_tag($limit, $offset, $tag)) >= $limit) {
             echo "<a href='tags_l.php?tag=" . trim($tag) . "&p=" . ($page+1) . "' class='button'>Next Page</a>";
         }
         ?>
@@ -35,13 +35,13 @@ include 'inc/header_l.php';
         <div class="entry-list">
           <h1><?php echo "#" . trim($tag); ?></h1>
           <?php
-          foreach (get_entry_list_by_tag($tag, $limit, $offset) as $item) {
+          foreach (get_entry_list_by_tag($limit, $offset, $tag) as $item) {
               echo "<article>";
-              echo "<h2><a href='detail_l.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
+              echo "<h2><a href='detail.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
               echo "<time datetime='" . $item['date'] . " " . $item['time'] . "'>" . date("F d, Y H:i", strtotime($item['date'] . " " . $item['time'])) . "</time><br>";
-              $tags = explode(',', $item['tags']);
+              $tags = get_tags($item['id']);
               foreach ($tags as $tag) {
-                  echo "<a href='tags_l.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
+                  echo "<a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
               }
               echo "<article>";
           }

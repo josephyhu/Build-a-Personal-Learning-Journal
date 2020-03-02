@@ -1,7 +1,7 @@
 <?php
 require 'inc/functions.php';
 
-$title = $date = $time = $timeSpentH = $timeSpentM = $learned = $resources = $tag = '';
+$title = $date = $time = $timeSpentH = $timeSpentM = $learned = $resources = '';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $item = get_entry($id);
 
@@ -16,11 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $timeSpentM = trim(filter_input(INPUT_POST, 'timeSpentM', FILTER_SANITIZE_STRING));
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
-    $tag = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
+    $tags = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
+    $tag_list = explode(',', $tags);
 
-    if (edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag, $id)) {
+    if (edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag_list, $id)) {
         echo 'Successfully edited entry.';
-        header('refresh: 1; url = detail_l.php?id=' . $id . '');
+        header('refresh: 1; url = detail.php?id=' . $id . '');
     } else {
         echo 'Unable to edit entry. Try again.';
     }
@@ -48,7 +49,7 @@ include 'inc/header_l.php';
             <label for="resources-to-remember">Resources to Remember (separate with commas, start links with 'http://' or 'https://')</label>
             <textarea id="resources-to-remember" rows="5" name="ResourcesToRemember"><?php echo $item['resources']; ?></textarea>
             <label for="tags">Tags (separate with commas)</label>
-            <textarea id="tags" rows="2" name="tags"><?php echo $item['tags']; ?></textarea>
+            <textarea id='tags' rows='2' name='tags'><?php echo implode(', ', get_tags($id)); ?></textarea>
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input type="submit" value="Edit Entry" class="button">
             <a href="index_l.php" class="button button-secondary">Cancel</a>

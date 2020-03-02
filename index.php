@@ -66,11 +66,9 @@ include 'inc/header.php';
                   echo "<article>";
                   echo "<h2><a href='detail.php?id=" . $entry['id'] . "'>" . $entry['title'] . "</a></h2>";
                   echo "<time datetime='" . $entry['date'] . " " . $entry['time'] . "'>" . date("F d, Y H:i", strtotime($entry['date'] . " " . $entry['time'])) . "</time><br>";
-                  if (!empty($entry['tags'])) {
-                      $tags = explode(',', $entry['tags']);
-                      foreach ($tags as $tag) {
-                          echo "<a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
-                      }
+                  $tags = get_tags($entry['id']);
+                  foreach ($tags as $tag) {
+                      echo "<a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
                   }
                   echo "</article>";
               }
@@ -79,11 +77,9 @@ include 'inc/header.php';
                   echo "<article>";
                   echo "<h2><a href='detail.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
                   echo "<time datetime='" . $item['date'] . " " . $item['time'] . "'>" . date("F d, Y H:i", strtotime($item['date'] . " " . $item['time'])) . "</time><br>";
-                  if (!empty($item['tags'])) {
-                      $tags = explode(',', $item['tags']);
-                      foreach ($tags as $tag) {
-                          echo "<a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
-                      }
+                  $tags = get_tags($item['id']);
+                  foreach ($tags as $tag) {
+                      echo "<a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a> ";
                   }
                   echo "</article>";
               }

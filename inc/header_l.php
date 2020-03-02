@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-      <div class="container" id="top">
+      <div class="container">
         <div class="site-header">
           <a class="logo" href="index_l.php" title="Home"><i class="material-icons">library_books</i></a>
           <a class="button icon-right" href="new_l.php"><span>New Entry</span> <i class="material-icons">add</i></a>
