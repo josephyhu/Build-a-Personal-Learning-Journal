@@ -70,10 +70,10 @@ function get_entry_list_by_tag($limit, $offset, $tag) {
 function get_entry($entry_id) {
     include 'connection.php';
 
-    $sql = "SELECT * FROM entries WHERE id = :entry_id";
+    $sql = "SELECT * FROM entries WHERE id = :id";
     try {
         $results = $db->prepare($sql);
-        $results->bindValue('entry_id', $entry_id, PDO::PARAM_INT);
+        $results->bindValue('id', $entry_id, PDO::PARAM_INT);
         $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
@@ -163,7 +163,7 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
     $results->execute();
 
     $sql = 'UPDATE entries SET title = :title, date = :date, time = :time, time_spent_h = :time_spent_h, ';
-    $sql .= 'time_spent_m = :time_spent_m, learned = :learned, resources = :resources WHERE id = :entry_id';
+    $sql .= 'time_spent_m = :time_spent_m, learned = :learned, resources = :resources WHERE id = :id';
     try {
         $results = $db->prepare($sql);
         $results->bindValue('title', $title, PDO::PARAM_STR);
@@ -173,7 +173,7 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
         $results->bindValue('time_spent_m', $timeSpentM, PDO::PARAM_STR);
         $results->bindValue('learned', $learned, PDO::PARAM_LOB);
         $results->bindValue('resources', $resources, PDO::PARAM_LOB);
-        $results->bindValue('entry_id', $entry_id, PDO::PARAM_INT);
+        $results->bindValue('id', $entry_id, PDO::PARAM_INT);
         $results->execute();
 
         foreach ($tags as $tag) {
@@ -204,10 +204,10 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
 function delete_entry($entry_id) {
     include 'connection.php';
 
-    $sql = 'DELETE FROM entries WHERE id = :entry_id';
+    $sql = 'DELETE FROM entries WHERE id = :id';
     try {
         $results = $db->prepare($sql);
-        $results->bindValue('entry_id', $entry_id, PDO::PARAM_INT);
+        $results->bindValue('id', $entry_id, PDO::PARAM_INT);
         $results->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
