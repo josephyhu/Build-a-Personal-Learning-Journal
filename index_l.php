@@ -65,8 +65,8 @@ include 'inc/header_l.php';
                   echo "<h2><a href='detail_l.php?id=" . $entry['id'] . "'>" . $entry['title'] . "</a></h2>";
                   echo "<time datetime='" . $entry['date'] . " " . $entry['time'] . "'>" . date("F d, Y H:i", strtotime($entry['date'] . " " . $entry['time'])) . "</time><br>";
                   $tags = get_tags($entry['id']);
-                  foreach ($tags as $tag[0]) {
-                      echo "<a href='tags_l.php?tag=" . trim($tag[0]['tag']) . "'>#" . trim($tag[0]['tag']) . "</a> ";
+                  foreach ($tags as $tag) {
+                      echo "<a href='tags_l.php?tag=" . $tag . "'>#" . $tag . "</a> ";
                   }
                   echo "</article>";
               }
@@ -76,8 +76,8 @@ include 'inc/header_l.php';
                   echo "<h2><a href='detail_l.php?id=" . $item['id'] . "'>" . $item['title'] . "</a></h2>";
                   echo "<time datetime='" . $item['date'] . " " . $item['time'] . "'>" . date("F d, Y H:i", strtotime($item['date'] . " " . $item['time'])) . "</time><br>";
                   $tags = get_tags($item['id']);
-                  foreach ($tags as $tag[0]) {
-                      echo "<a href='tags_l.php?tag=" . trim($tag[0]['tag']) . "'>#" . trim($tag[0]['tag']) . "</a> ";
+                  foreach ($tags as $tag) {
+                      echo "<a href='tags_l.php?tag=" . $tag . "'>#" . $tag . "</a> ";
                   }
                   echo "</article>";
               }

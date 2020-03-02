@@ -48,7 +48,7 @@ include 'inc/header.php';
               $tags = get_tags($id);
               echo "<ul>";
               foreach ($tags as $tag) {
-                  echo "<li><a href='tags.php?tag=" . trim($tag) . "'>#" . trim($tag) . "</a></li>";
+                  echo "<li><a href='tags.php?tag=" . $tag . "'>#" . $tag . "</a></li>";
               }
               echo "</ul>";
               ?>
