@@ -188,9 +188,12 @@ function delete_all_entries() {
     include 'connection.php';
 
     $sql = 'DELETE FROM entries';
+    $sql2 = 'DELETE FROM tags';
     try {
         $results = $db->prepare($sql);
+        $results2 = $db->prepare($sql2);
         $results->execute();
+        $results2->execute();
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
         return false;
