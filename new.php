@@ -14,9 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
     $tags = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
-    if ($tags !== '') {
-        $tag_list = explode(',', $tags);
-    }
+    $tag_list = explode(',', $tags);
 
     if (add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag_list)) {
         echo 'Successfully added entry.';
