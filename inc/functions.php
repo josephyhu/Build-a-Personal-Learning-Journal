@@ -125,7 +125,7 @@ function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $re
         $results->bindValue('date', $date, PDO::PARAM_STR);
         $results->bindValue('time', $time, PDO::PARAM_STR);
         $results->bindValue('time_spent_h', $timeSpentH, PDO::PARAM_INT);
-        $results->bindValue('time_spent_m', $timeSpentM, PDO::PARAM_STR);
+        $results->bindValue('time_spent_m', $timeSpentM, PDO::PARAM_INT);
         $results->bindValue('learned', $learned, PDO::PARAM_LOB);
         $results->bindValue('resources', $resources, PDO::PARAM_LOB);
         $results->execute();
@@ -136,13 +136,13 @@ function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $re
             if (!in_array($tag, get_all_tags())) {
                 $sql = 'INSERT INTO tags (tag) VALUES (:tag)';
                 $results = $db->prepare($sql);
-                $results->bindValue('tag', $tag, PDO::PARAM_LOB);
+                $results->bindValue('tag', $tag, PDO::PARAM_STR);
                 $results->execute();
                 $tag_id = $db->lastInsertId();
             } else {
                 $sql = 'SELECT id FROM tags WHERE tag = :tag';
                 $results = $db->prepare($sql);
-                $results->bindValue('tag', $tag, PDO::PARAM_LOB);
+                $results->bindValue('tag', $tag, PDO::PARAM_STR);
                 $results->execute();
                 $tag_id = $results->fetch();
                 $tag_id = $tag_id[0];
@@ -171,7 +171,7 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
         $results->bindValue('date', $date, PDO::PARAM_STR);
         $results->bindValue('time', $time, PDO::PARAM_STR);
         $results->bindvalue('time_spent_h', $timeSpentH, PDO::PARAM_INT);
-        $results->bindValue('time_spent_m', $timeSpentM, PDO::PARAM_STR);
+        $results->bindValue('time_spent_m', $timeSpentM, PDO::PARAM_INT);
         $results->bindValue('learned', $learned, PDO::PARAM_LOB);
         $results->bindValue('resources', $resources, PDO::PARAM_LOB);
         $results->bindValue('id', $entry_id, PDO::PARAM_INT);
@@ -182,13 +182,13 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
             if (!in_array($tag, get_all_tags())) {
                 $sql = 'INSERT INTO tags (tag) VALUES (:tag)';
                 $results = $db->prepare($sql);
-                $results->bindValue('tag', $tag, PDO::PARAM_LOB);
+                $results->bindValue('tag', $tag, PDO::PARAM_STR);
                 $results->execute();
                 $tag_id = $db->lastInsertId();
             } else {
                 $sql = 'SELECT id FROM tags WHERE tag = :tag';
                 $results = $db->prepare($sql);
-                $results->bindValue('tag', $tag, PDO::PARAM_LOB);
+                $results->bindValue('tag', $tag, PDO::PARAM_STR);
                 $results->execute();
                 $tag_id = $results->fetch();
                 $tag_id = $tag_id[0];
