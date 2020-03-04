@@ -1,7 +1,6 @@
 <?php
 require 'inc/functions.php';
 
-$title = $date = $time = $timeSpentH = $timeSpentM = $learned = $resources = '';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $item = get_entry($id);
 

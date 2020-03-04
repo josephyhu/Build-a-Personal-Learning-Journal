@@ -114,7 +114,7 @@ function count_entries($search) {
     return $results->fetchColumn();
 }
 
-function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tags) {
+function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources = null, $tags = null) {
     include 'connection.php';
 
     $sql = 'INSERT INTO entries (title, date, time, time_spent_h, time_spent_m, learned, resources) ';
@@ -133,21 +133,23 @@ function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $re
 
         foreach ($tags as $tag) {
             $tag = trim($tag);
-            if (!in_array($tag, get_all_tags())) {
-                $sql = 'INSERT INTO tags (tag) VALUES (:tag)';
-                $results = $db->prepare($sql);
-                $results->bindValue('tag', $tag, PDO::PARAM_STR);
-                $results->execute();
-                $tag_id = $db->lastInsertId();
-            } else {
-                $sql = 'SELECT id FROM tags WHERE tag = :tag';
-                $results = $db->prepare($sql);
-                $results->bindValue('tag', $tag, PDO::PARAM_STR);
-                $results->execute();
-                $tag_id = $results->fetch();
-                $tag_id = $tag_id[0];
+            if ($tag !== '') {
+                if (!in_array($tag, get_all_tags())) {
+                    $sql = 'INSERT INTO tags (tag) VALUES (:tag)';
+                    $results = $db->prepare($sql);
+                    $results->bindValue('tag', $tag, PDO::PARAM_STR);
+                    $results->execute();
+                    $tag_id = $db->lastInsertId();
+                } else {
+                    $sql = 'SELECT id FROM tags WHERE tag = :tag';
+                    $results = $db->prepare($sql);
+                    $results->bindValue('tag', $tag, PDO::PARAM_STR);
+                    $results->execute();
+                    $tag_id = $results->fetch();
+                    $tag_id = $tag_id[0];
+                }
+                $db->query("INSERT INTO entry_tag (entry_id, tag_id) VALUES ($entry_id, $tag_id)");
             }
-            $db->query("INSERT INTO entry_tag (entry_id, tag_id) VALUES ($entry_id, $tag_id)");
         }
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
@@ -156,7 +158,7 @@ function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $re
     return true;
 }
 
-function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tags, $entry_id) {
+function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources = null, $tags = null, $entry_id) {
     include 'connection.php';
 
     $results = $db->prepare('DELETE FROM entry_tag WHERE entry_id = :entry_id');
@@ -179,21 +181,23 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
 
         foreach ($tags as $tag) {
             $tag = trim($tag);
-            if (!in_array($tag, get_all_tags())) {
-                $sql = 'INSERT INTO tags (tag) VALUES (:tag)';
-                $results = $db->prepare($sql);
-                $results->bindValue('tag', $tag, PDO::PARAM_STR);
-                $results->execute();
-                $tag_id = $db->lastInsertId();
-            } else {
-                $sql = 'SELECT id FROM tags WHERE tag = :tag';
-                $results = $db->prepare($sql);
-                $results->bindValue('tag', $tag, PDO::PARAM_STR);
-                $results->execute();
-                $tag_id = $results->fetch();
-                $tag_id = $tag_id[0];
+            if ($tag !== '') {
+                if (!in_array($tag, get_all_tags())) {
+                    $sql = 'INSERT INTO tags (tag) VALUES (:tag)';
+                    $results = $db->prepare($sql);
+                    $results->bindValue('tag', $tag, PDO::PARAM_STR);
+                    $results->execute();
+                    $tag_id = $db->lastInsertId();
+                } else {
+                    $sql = 'SELECT id FROM tags WHERE tag = :tag';
+                    $results = $db->prepare($sql);
+                    $results->bindValue('tag', $tag, PDO::PARAM_STR);
+                    $results->execute();
+                    $tag_id = $results->fetch();
+                    $tag_id = $tag_id[0];
+                }
+                $db->query("INSERT INTO entry_tag (entry_id, tag_id) VALUES ($entry_id, $tag_id)");
             }
-            $db->query("INSERT INTO entry_tag (entry_id, tag_id) VALUES ($entry_id, $tag_id)");
         }
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";

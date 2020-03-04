@@ -1,8 +1,6 @@
 <?php
 require 'inc/functions.php';
 
-$title = $date = $time = $timeSpentH = $timeSpentM = $learned = $resources = $tags = '';
-
 $pageTitle = ' | New Entry';
 
 date_default_timezone_set('America/New_York');
