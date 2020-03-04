@@ -16,7 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $learned = trim(filter_input(INPUT_POST, 'whatILearned', FILTER_SANITIZE_STRING));
     $resources = trim(filter_input(INPUT_POST, 'ResourcesToRemember', FILTER_SANITIZE_STRING));
     $tags = trim(filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING));
-    $tag_list = explode(',', $tags);
+    if ($tags !== '') {
+        $tag_list = explode(',', $tags);
+    }
 
     if (edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tag_list, $id)) {
         echo 'Successfully edited entry.';
