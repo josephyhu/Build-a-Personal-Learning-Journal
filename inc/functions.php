@@ -117,7 +117,8 @@ function count_entries($search) {
 function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $resources, $tags) {
     include 'connection.php';
 
-    $sql = 'INSERT INTO entries (title, date, time, time_spent_h, time_spent_m, learned, resources) VALUES (:title, :date, :time, :time_spent_h, :time_spent_m, :learned, :resources)';
+    $sql = 'INSERT INTO entries (title, date, time, time_spent_h, time_spent_m, learned, resources) ';
+    $sql .= 'VALUES (:title, :date, :time, :time_spent_h, :time_spent_m, :learned, :resources)';
     try {
         $results = $db->prepare($sql);
         $results->bindValue('title', $title, PDO::PARAM_STR);
