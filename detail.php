@@ -29,7 +29,7 @@ include 'inc/header.php';
             <div class='entry'>
               <h3>Resources to Remember:</h3>
               <?php
-              if (!empty($item['resources'])) {
+              if (isset($item['resources'])) {
                   echo "<ul>";
                   foreach (explode(',', $item['resources']) as $resource) {
                       if (stripos(trim($resource), 'http://') === 0 or stripos(trim($resource), 'https://') === 0) {
