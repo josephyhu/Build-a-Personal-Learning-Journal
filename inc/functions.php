@@ -132,8 +132,8 @@ function add_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $re
         $entry_id = $db->lastInsertId();
 
         foreach ($tags as $tag) {
-            $tag = trim($tag);
-            if ($tag !== '') {
+            if (isset($tag)) {
+                $tag = trim($tag);
                 if (!in_array($tag, get_all_tags())) {
                     $sql = 'INSERT INTO tags (tag) VALUES (:tag)';
                     $results = $db->prepare($sql);
@@ -180,8 +180,8 @@ function edit_entry($title, $date, $time, $timeSpentH, $timeSpentM, $learned, $r
         $results->execute();
 
         foreach ($tags as $tag) {
-            $tag = trim($tag);
-            if ($tag !== '') {
+            if (isset($tag)) {
+                $tag = trim($tag);
                 if (!in_array($tag, get_all_tags())) {
                     $sql = 'INSERT INTO tags (tag) VALUES (:tag)';
                     $results = $db->prepare($sql);
