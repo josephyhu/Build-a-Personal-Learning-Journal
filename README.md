@@ -11,6 +11,9 @@ This page lists all the entries ordered first by date posted in descending order
 ### Detail Page (detail.php?id={id})
 This page displays a specific entry by {id}.
 
+### Profile Page (profile.php)
+This page lists the total number of Treehouse badges earned and the total points per earned category in descending order.
+
 ### New Entry Page (new.php)
 This page allows the user to post new entries. The allowed fields are entry title, date posted, time posted, time spent learning, things learned, resources, and tags. The fields: title, date, time, time spent, and things learned are all required. The resources and tags fields are optional.
 
@@ -28,10 +31,6 @@ All pages with URLs ending in `_l` are exactly the same as the corresponding pag
 
 ## Recent Changes
 * Added dark background/light background option.
-  * Changed the background color to midnight blue for the dark background.
-  * Changed all text and link colors to white for the dark background.
-* Added the title attribute of 'Home' to the home page button (the button on the top left).
-* Set the opacity to .5 for all links and buttons on hover.
 * Added search field to the home page.
 * Added pagination to the home and the tags pages with the current limit of 25 entries per page.
 * Changed the delete link in the detail page to a button with a confirmation box on click.
@@ -39,6 +38,7 @@ All pages with URLs ending in `_l` are exactly the same as the corresponding pag
 * Added two links on either side of the copyright in the footer which sends the user to the top of the page.
 * Now the entries on both home and tags pages are ordered first by date posted in descending order, then by time posted in descending order, and finally by id also in descending order.
 * Added ability to enter time posted. Also now, the date and time defaults to current date and time (in UTC-05:00 or US/New York time) when adding a new post.
+* Added a profile page that displays the total number of Treehouse badges earned and the total points earned per category in descending order.
 
 ## Things to Improve
 1. Allow the user to set the current limit of entries per page from the following choices: 10, 25, 50, 100, and all.
