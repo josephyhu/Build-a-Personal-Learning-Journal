@@ -12,7 +12,7 @@ This page lists all the entries ordered first by date posted in descending order
 This page displays a specific entry by {id}.
 
 ### Profile Page (profile.php)
-This page lists the total number of Treehouse badges earned and the total points per earned category in descending order.
+This page lists the total number of Treehouse badges earned and the total points earned per category in descending order.
 
 ### New Entry Page (new.php)
 This page allows the user to post new entries. The allowed fields are entry title, date posted, time posted, time spent learning, things learned, resources, and tags. The fields: title, date, time, time spent, and things learned are all required. The resources and tags fields are optional.
