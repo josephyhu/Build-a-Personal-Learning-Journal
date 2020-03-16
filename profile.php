@@ -5,16 +5,18 @@ include 'inc/header.php';
 <section>
 <div class="container">
 <a href="profile_l.php" class="button">Light</a>
-<br><br><br>
+<h1>Profile</h1>
 <?php
 $contents = file_get_contents("https://teamtreehouse.com/josephyhu.json");
 $contents = utf8_encode($contents);
 $data = json_decode($contents, true);
+$badges = count($data["badges"]);
 $points = $data["points"];
 arsort($points);
-
+echo "<p>Total badges: " . $badges . "</p>";
+echo "<p>Points:</p>";
 foreach ($points as $key => $value) {
-    echo $key . ": " . $value . "<br>";
+    echo "<p>" . $key . ": " . $value . "</p>";
 }
 ?>
 </div>
