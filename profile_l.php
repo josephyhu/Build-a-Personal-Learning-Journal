@@ -14,8 +14,9 @@ $data = json_decode($contents, true);
 $badges = count($data["badges"]);
 $points = $data["points"];
 arsort($points);
-echo "<p>Total badges: " . $badges . "</p>";
-echo "<p>Points:</p>";
+echo "<h2>Badges</h2>";
+echo "<p>Total: " . $badges . "</p>";
+echo "<h2>Points</h2>";
 foreach ($points as $key => $value) {
     if ($value > 0) {
         echo "<p>" . $key . ": " . $value . "</p>";
