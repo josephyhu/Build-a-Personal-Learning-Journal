@@ -17,7 +17,9 @@ arsort($points);
 echo "<p>Total badges: " . $badges . "</p>";
 echo "<p>Points:</p>";
 foreach ($points as $key => $value) {
-    echo "<p>" . $key . ": " . $value . "</p>";
+    if ($value > 0) {
+        echo "<p>" . $key . ": " . $value . "</p>";
+    }
 }
 ?>
 </div>
